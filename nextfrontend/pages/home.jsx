@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Head from "next/head";
-
-export default function Home(props) {
+import HomeLayout from "../layouts/homelayout";
+function Home(props) {
   return (
+
     <section>
       <Head>
         <title>Home</title>
@@ -15,3 +16,6 @@ export default function Home(props) {
     </section>
   );
 }
+Home.PageLayout = HomeLayout
+
+export default Home;
