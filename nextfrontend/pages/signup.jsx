@@ -15,16 +15,16 @@ const formReducer = (state, e) => {
 return {...state, [e.target.name]: e.target.value}
 }
 export default function SignUp(props) {
-  const [formData, setFormData] = useReducer(formReducer, {}); //passing in a form Reducer function, and an empty initial value
+  const [formData, setFormData] = useState(""); //passing in a form Reducer function, and an empty initial value
   
 
   return (
     <div className="flex flex-row items-center justify-center h-screen">
       <form onSubmit={handleAction} className="m-2 p-2"> {/*We are using a Form element here with a basic setup and a callback for on click*/}
         <fieldset className="p-5 m-2 gap-5 border border-black">
-          <input name="name" placeholder="User Name" className="m-2" onChange={setFormData}/>
-          <input name="email" placeholder="Email" className="m-2" onChange={setFormData}/>
-          <input name="password" placeholder="Password" className="m-2" onChange={setFormData}/>
+          <input name="name" type="name" placeholder="User Name" className="m-2" onChange={setFormData}/>
+          <input name="email" type="email" placeholder="Email" className="m-2" onChange={setFormData}/>
+          <input name="password" type="password" placeholder="Password" className="m-2" onChange={setFormData}/>
         </fieldset>
         <button
           type="submit"
