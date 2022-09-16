@@ -7,12 +7,12 @@ const handleAction = (e) => {
   e.preventDefault();
   // TODO- set the data for username and call firebase
 
-  console.log(e.target.name)
+  console.log(e.target)
   alert("You've just signed up! Get ready for some action!");
 };
 
-const formReducer = (state, event) => {
-return {...state, [event.target.name]: event.target.value}
+const formReducer = (state, e) => {
+return {...state, [e.target.name]: e.target.value}
 }
 export default function SignUp(props) {
   const [formData, setFormData] = useReducer(formReducer, {}); //passing in a form Reducer function, and an empty initial value
