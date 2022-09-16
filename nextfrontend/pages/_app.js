@@ -2,7 +2,7 @@ import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div className="bg-yellow-200 min-h-screen">
+    <div>
       {Component.PageLayout ? (
         <Component.PageLayout>
           <Component {...pageProps} />

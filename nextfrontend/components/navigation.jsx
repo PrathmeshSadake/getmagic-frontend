@@ -3,11 +3,12 @@ import NavigationLayout from "../layouts/navigationlayout";
 
 export default function Navigation(props) {
   return (
-    <Link href="/">
-      <a>Home</a>
-    </Link>
+    <div className="flex flex-row justify-center align-middle p-2 h-10 bg-red-200">
+      <Link href="/">
+        <a>Home</a>
+      </Link>
+    </div>
   );
 }
 
-
-Navigation.PageLayout = NavigationLayout
+// Navigation.PageLayout = NavigationLayout

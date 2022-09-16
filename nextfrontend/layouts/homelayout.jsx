@@ -1,6 +1,6 @@
 export default function HomeLayout({ children }) {
   return (
-    <main className="">
+    <main className="bg-yellow-400 min-h-screen ">
      {children}
     </main>
   ) 

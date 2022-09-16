@@ -2,6 +2,10 @@ import Link from "next/link";
 import Head from "next/head";
 import HomeLayout from "../layouts/homelayout";
 import Navigation from "../components/navigation";
+import hero from '../public/assets/homepage-1.jpg'
+import Image from 'next/image'
+
+
 function Home(props) {
   return (
 
@@ -13,10 +17,8 @@ function Home(props) {
       </Head>
       
     <Navigation />
-    <div className="">
 
-    </div>
-
+    <Image height="100" width="100" src={hero} />
     </section>
   );
 }
