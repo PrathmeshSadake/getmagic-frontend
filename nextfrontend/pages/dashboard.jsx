@@ -6,3 +6,5 @@
 //Create a useAuth custom hook!(what!!!? Yay!!)
 //Here wrap useContext into a useAuth hook that returns the current state of a user session and also, lets you logout users from
 //anywhere on the platform
+//Need to move the Firebase config vars to an env file inside next and then use NEXT_PROCESS_...
+//See the auth notes in the next steps doc
