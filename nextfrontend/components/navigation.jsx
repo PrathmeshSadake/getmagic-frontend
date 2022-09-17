@@ -10,6 +10,9 @@ export default function Navigation(props) {
       <Link href="/signup">
         <a>Sign Up!</a>
       </Link>
+      <Link href="/signin">
+        <a>Sign in</a>
+      </Link>
     </div>
   );
 }
