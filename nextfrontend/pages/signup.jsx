@@ -7,12 +7,12 @@ export default function SignUp(props) {
   const [user, setUser] = useState(""); //passing in a form Reducer function, and an empty initial value
   const [email, setEmail] = useState(""); //passing in a form Reducer function, and an empty initial value
   const [password, setPassword] = useState(""); //passing in a form Reducer function, and an empty initial value
-
+  
   const handleAction = async (e) => {
     e.preventDefault();
     try {
-      await {userCred = createUserWithEmailAndPassword(auth, email, password)}
-      console.log(userCred)
+      const userCred = await createUserWithEmailAndPassword(auth, email, password)
+      console.log(userCred.user.accessToken)
     } catch (e) {
       console.log(`You have an error! ${e}`);
     }
