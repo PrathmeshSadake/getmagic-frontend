@@ -14,7 +14,8 @@ const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const auth_return = await signInWithEmailAndPassword(auth, email, password);
-      console.log(`this is the returned value ${auth_return._tokenResponse.refreshtoken}`)
+      console.log(`this is the returned value ${auth_return._tokenResponse.refreshToken}`)
+      sessionStorage.setItem('Auth Token', auth_return.user.accessToken)
     } catch (e) {
       console.log(
         `You have this error, will be replacaed with Toastify -> ${e}`
