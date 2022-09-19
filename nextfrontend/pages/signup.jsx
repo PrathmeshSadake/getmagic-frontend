@@ -27,10 +27,10 @@ export default function SignUp(props) {
     <>
       <Navigation />
       <div className="flex flex-row items-center justify-center h-screen">
-        <form onSubmit={handleAction} className="m-2 p-2">
+        <form onSubmit={handleAction} className="flex items-center m-2 p-2">
           {" "}
           {/*We are using a Form element here with a basic setup and a callback for on click*/}
-          <fieldset className="p-5 m-2 gap-5 border border-black">
+          <fieldset className="p-5 m-2 gap-5">
             <input
               name="name"
               type="name"
