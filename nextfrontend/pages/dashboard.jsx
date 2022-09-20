@@ -3,25 +3,27 @@
 //Here only have a text field from a torm
 
 import { useEffect, useState } from "react";
-
+import { toast, Toast, ToastContainer } from "react-toastify";
 //Then
 //Create a useAuth custom hook!(what!!!? Yay!!)
 //Here wrap useContext into a useAuth hook that returns the current state of a user session and also, lets you logout users from
 //anywhere on the platform
 //Need to move the Firebase config vars to an env file inside next and then use NEXT_PROCESS_...
 //See the auth notes in the next steps doc
-const [authToken, setAuthToken] = useState(null);
+// const [authToken, setAuthToken] = useState(null);
 
 export default function Dashboard(props) {
-  useEffect(() => {
-     setAuthToken(sessionStorage.getItem("Auth Token"));
-  }, [authToken]);
 
-  return (
-    <>
-      <div className="h1">
-        <h1> you are logged in as {authToken} </h1>
-      </div>
-    </>
-  );
+  //we create a useEffect hook here to test out the auth parts, to be deleted or reused later
+  // useEffect(() => {
+    
+  //   <div className="h1">
+  //     <h1> you are logged in as </h1>
+  //   </div>;
+  //   toast("Hey you are signed in");
+  //   //the above is just a toastify message, to test if its working
+  //   setAuthToken(sessionStorage.getItem("Auth Token"));
+  // }, []);
+
+  return <>Hey, you are in a protected route with this Auth</>;
 }

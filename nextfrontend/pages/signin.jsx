@@ -52,7 +52,7 @@ const handleSubmit = async (e) => {
               border border-slate-600
                bg-slate-500 hover:bg-slate-700 "
           >
-            Sing in
+            Sign in
             <svg
               class="mt-0.5 ml-2 -mr-1 stroke-white stroke-2"
               fill="none"

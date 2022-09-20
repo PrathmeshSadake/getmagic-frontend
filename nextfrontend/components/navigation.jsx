@@ -3,7 +3,7 @@ import NavigationLayout from "../layouts/navigationlayout";
 
 export default function Navigation(props) {
   return (
-    <div className="flex flex-row justify-center align-middle p-2 gap-4 h-10 bg-red-200">
+    <div className="flex flex-row justify-center align-middle p-2 gap-4 h-10 bg-slate-200 font-extrabold">
       <Link href="/">
         <a>Home</a>
       </Link>
