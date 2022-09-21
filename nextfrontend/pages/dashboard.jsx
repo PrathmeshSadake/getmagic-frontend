@@ -4,6 +4,7 @@
 
 import { useEffect, useState } from "react";
 import { toast, Toast, ToastContainer } from "react-toastify";
+import { useAuth } from "../context/authcontext";
 //Then
 //Create a useAuth custom hook!(what!!!? Yay!!)
 //Here wrap useContext into a useAuth hook that returns the current state of a user session and also, lets you logout users from
@@ -13,7 +14,7 @@ import { toast, Toast, ToastContainer } from "react-toastify";
 // const [authToken, setAuthToken] = useState(null);
 
 export default function Dashboard(props) {
-
+console.log(useAuth)
   //we create a useEffect hook here to test out the auth parts, to be deleted or reused later
   // useEffect(() => {
     
