@@ -2,6 +2,7 @@ import SignUpLayout from "../layouts/signuplayout";
 import { useState, useRef, useEffect, useReducer } from "react";
 import Navigation from "../components/navigation.jsx";
 import { useAuth } from "../context/authcontext";
+import Router from "next/router";
 
 
 export default function SignUp(props) {
@@ -14,6 +15,7 @@ export default function SignUp(props) {
     e.preventDefault();
     try {
       const userCred = await signup(email,password);
+      Router.push('/dashboard')
       console.log(userCred.user.accessToken);
     } catch (e) {
       console.log(`You have an error! ${e} ${user}`);
