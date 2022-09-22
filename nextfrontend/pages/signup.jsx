@@ -1,25 +1,22 @@
 import SignUpLayout from "../layouts/signuplayout";
 import { useState, useRef, useEffect, useReducer } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase-config";
 import Navigation from "../components/navigation.jsx";
+import { useAuth } from "../context/authcontext";
+
 
 export default function SignUp(props) {
-  const [user, setUser] = useState(""); //passing in a form Reducer function, and an empty initial value
   const [email, setEmail] = useState(""); //passing in a form Reducer function, and an empty initial value
   const [password, setPassword] = useState(""); //passing in a form Reducer function, and an empty initial value
+
+  const {user, signup} = useAuth()
 
   const handleAction = async (e) => {
     e.preventDefault();
     try {
-      const userCred = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+      const userCred = await signup(email,password);
       console.log(userCred.user.accessToken);
     } catch (e) {
-      console.log(`You have an error! ${e}`);
+      console.log(`You have an error! ${e} ${user}`);
     }
   };
 
@@ -30,13 +27,6 @@ export default function SignUp(props) {
         <form onSubmit={handleAction} className="flex items-center m-2 p-2">
           {/*We are using a Form element here with a basic setup and a callback for on click*/}
           <fieldset className="p-5 m-2 gap-5">
-            <input
-              name="name"
-              type="name"
-              placeholder="User Name"
-              className="m-2"
-              onChange={(e) => setUser(e.target.value)}
-            />
             <input
               name="email"
               type="email"

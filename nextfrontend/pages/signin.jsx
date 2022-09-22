@@ -57,7 +57,7 @@ const handleSubmit = async (e) => {
           >
             Sign in
             <svg
-              class="mt-0.5 ml-2 -mr-1 stroke-white stroke-2"
+              className="mt-0.5 ml-2 -mr-1 stroke-white stroke-2"
               fill="none"
               width="10"
               height="10"
