@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { toast, Toast, ToastContainer } from "react-toastify";
 import { useAuth } from "../context/authcontext";
 //Then
+// Start with moving out the si and su work into AuthContext -> then add a signout too.
 //Create a useAuth custom hook!(what!!!? Yay!!)
 //Here wrap useContext into a useAuth hook that returns the current state of a user session and also, lets you logout users from
 //anywhere on the platform
