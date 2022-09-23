@@ -35,10 +35,3 @@ function MyApp({ Component, pageProps }) {
 
 export default MyApp;
 
-// Component.PageLayout ? (
-//   <Component.PageLayout>
-//     <Component {...pageProps} />
-//   </Component.PageLayout>
-// ) : (
-//   <Component {...pageProps} />
-// );
