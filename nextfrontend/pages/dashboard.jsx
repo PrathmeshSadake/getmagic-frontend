@@ -4,6 +4,7 @@
 
 import { useEffect, useState } from "react";
 import { toast, Toast, ToastContainer } from "react-toastify";
+import Navigation from "../components/navigation";
 import { useAuth } from "../context/authcontext";
 //Then
 // Start with moving out the si and su work into AuthContext -> then add a signout too.
@@ -15,10 +16,10 @@ import { useAuth } from "../context/authcontext";
 // const [authToken, setAuthToken] = useState(null);
 
 export default function Dashboard(props) {
-console.log(useAuth)
+  console.log(useAuth);
   //we create a useEffect hook here to test out the auth parts, to be deleted or reused later
   // useEffect(() => {
-    
+
   //   <div className="h1">
   //     <h1> you are logged in as </h1>
   //   </div>;
@@ -27,5 +28,10 @@ console.log(useAuth)
   //   setAuthToken(sessionStorage.getItem("Auth Token"));
   // }, []);
 
-  return <>Hey, you are in a protected route with this Auth</>;
+  return (
+    <>
+      <Navigation />
+      <>Hey, you are in a protected route with this Auth</>)
+    </>
+  );
 }

@@ -1,24 +1,26 @@
 import Navigation from "../components/navigation";
 import SignUpLayout from "../layouts/signuplayout";
 import { useState } from "react";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-// import { useRouter } from "next/router"; //this is to push a user to Dashboard after signing in
+import { useAuth } from "../context/authcontext";
+import { Router, useRouter } from "next/router"; //this is to push a user to Dashboard after signing in
 export default function SignIn(props) {
   //TODO on Sep 17th
   // onSubmit, call Firebase singinwithemailandpassword and get auth object -> have it go to useContext
   // In dashboard use the auth object(see dashboard.jsx after this)
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
-
-const handleSubmit = async (e) => {
-    const auth = getAuth();
+  const { user, signin } = useAuth();
+  const router = useRouter();
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const auth_return = await signInWithEmailAndPassword(auth, email, password);
-      console.log(`this is the returned value ${auth_return._tokenResponse.refreshToken}`)
-      sessionStorage.setItem('Auth Token', auth_return.user.accessToken)
-      // const router = useRouter()
-      // router.push('/dashboard')
+      const auth_return = await signin(email, password);
+
+      router.push("/dashboard");
+      console.log(
+        `this is the returned value ${auth_return._tokenResponse.refreshToken}`
+      );
+      sessionStorage.setItem("Auth Token", auth_return.user.accessToken);
     } catch (e) {
       console.log(
         `You have this error, will be replacaed with Toastify -> ${e}`

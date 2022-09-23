@@ -38,6 +38,7 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const signout = async () => {
+    console.log(`you arebeing signed out ${user}`)
     setUser(null)
     await signOut(auth)
   }
