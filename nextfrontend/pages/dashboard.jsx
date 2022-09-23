@@ -5,6 +5,7 @@
 import { useEffect, useState } from "react";
 import { toast, Toast, ToastContainer } from "react-toastify";
 import Navigation from "../components/navigation";
+import Card from "../components/card";
 import { useAuth } from "../context/authcontext";
 //Then
 // Start with moving out the si and su work into AuthContext -> then add a signout too.
@@ -31,6 +32,7 @@ export default function Dashboard(props) {
   return (
     <>
       <Navigation />
+      <Card />
       <>Hey, you are in a protected route with this Auth</>)
     </>
   );

@@ -1,19 +1,28 @@
 import "../styles/globals.css";
 import { AuthContextProvider } from "../context/authcontext";
+import ProtectedRoutes from "../components/protectedRoutes";
+import { useRouter } from "next/router";
+
+const openRoutes = ["/", "home", "signup", "signin", "logout"];
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
   return (
-    <div>
-      <AuthContextProvider>
-        {Component.PageLayout ? (
+    <AuthContextProvider>
+      {openRoutes.includes(router.pathname) ? (
+        Component.PageLayout ? (
           <Component.PageLayout>
             <Component {...pageProps} />
           </Component.PageLayout>
         ) : (
           <Component {...pageProps} />
-        )}
-      </AuthContextProvider>
-    </div>
+        )
+      ) : (
+        <ProtectedRoutes>
+          <Component {...pageProps} />
+        </ProtectedRoutes>
+      )}
+    </AuthContextProvider>
   );
 }
 
