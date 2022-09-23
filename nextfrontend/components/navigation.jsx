@@ -17,7 +17,6 @@ export default function Navigation(props) {
       <Link href="/signin">
         <a>Sign in</a>
       </Link>
-      {user && <Link href="/signout"><a>Signout</a></Link>}
       {user && <button onClick={handleSignout} name="Signout"> Sign out </button>}
     </div>
   );
@@ -25,3 +24,4 @@ export default function Navigation(props) {
 
 // Navigation.PageLayout = NavigationLayout
 //      {() => {if(user) return(<Link> href="singout" <a>Signout</a></Link>)}}
+//      {user && <Link href="/signout"><a>Signout</a></Link>}

@@ -7,6 +7,7 @@ import { toast, Toast, ToastContainer } from "react-toastify";
 import Navigation from "../components/navigation";
 import Card from "../components/card";
 import { useAuth } from "../context/authcontext";
+import HomeLayout from "../layouts/homelayout";
 //Then
 // Start with moving out the si and su work into AuthContext -> then add a signout too.
 //Create a useAuth custom hook!(what!!!? Yay!!)
@@ -37,3 +38,5 @@ export default function Dashboard(props) {
     </>
   );
 }
+
+Dashboard.PageLayout = HomeLayout 
