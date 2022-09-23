@@ -9,7 +9,7 @@ const ProtectedRoutes = ({ children }) => {
     if (!user) {
       router.push("/home");
     }
-  }, [router, user]);
+  }, []);
 
   return <>{user ? children : null}</>;
 };

@@ -3,7 +3,7 @@ import { AuthContextProvider } from "../context/authcontext";
 import ProtectedRoutes from "../components/protectedRoutes";
 import { useRouter } from "next/router";
 
-const openRoutes = ["/", "home", "signup", "signin", "logout"];
+const openRoutes = ["/", "/home", "/signup", "/index", "/signin", "/logout"];
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -19,7 +19,12 @@ function MyApp({ Component, pageProps }) {
         )
       ) : (
         <ProtectedRoutes>
-          <Component {...pageProps} />
+          Component.PageLayout ? (
+          <Component.PageLayout>
+            <Component {...pageProps} />
+          </Component.PageLayout>
+          ) : (
+          <Component {...pageProps} />) )
         </ProtectedRoutes>
       )}
     </AuthContextProvider>
