@@ -23,7 +23,7 @@ export default function SignIn(props) {
       );
       sessionStorage.setItem("Auth Token", auth_return.user.accessToken);
     } catch (e) {
-      toast(`Ooooppss ${e}`, "autoclose:500");
+      toast(`Ooooppss ${e}`,{autoClose:2000});
     }
   };
   return (

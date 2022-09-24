@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   return (
     <AuthContextProvider>
-        <ToastContainer position="top-right" theme="colored" closeOnClick newestOnTop={true} />
+        <ToastContainer position="top-left" theme="colored" closeOnClick newestOnTop={true} />
         {openRoutes.includes(router.pathname) ? (
           Component.PageLayout ? (
             <Component.PageLayout>
