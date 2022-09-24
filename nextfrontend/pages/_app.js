@@ -20,13 +20,13 @@ function MyApp({ Component, pageProps }) {
         )
       ) : (
         <ProtectedRoutes>
-          Component.PageLayout ? (
+          {Component.PageLayout ? (
           <Component.PageLayout>
             <Component {...pageProps} />
           </Component.PageLayout>
-          ) : (
+          ) : 
           <Component {...pageProps} />
-          );
+          }
         </ProtectedRoutes>
       )}
     </AuthContextProvider>
