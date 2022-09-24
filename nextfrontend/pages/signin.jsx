@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useAuth } from "../context/authcontext";
 import { Router, useRouter } from "next/router"; //this is to push a user to Dashboard after signing in
 import { ToastContainer, toast } from "react-toastify";
-
+import 'react-toastify/dist/ReactToastify.css'
 export default function SignIn(props) {
   //TODO on Sep 17th
   // onSubmit, call Firebase singinwithemailandpassword and get auth object -> have it go to useContext
@@ -17,15 +17,13 @@ export default function SignIn(props) {
     e.preventDefault();
     try {
       const auth_return = await signin(email, password);
-
       router.push("/dashboard");
       console.log(
         `this is the returned value ${auth_return._tokenResponse.refreshToken}`
       );
       sessionStorage.setItem("Auth Token", auth_return.user.accessToken);
     } catch (e) {
-      const toastError = () => toast(`Oopss ${e}`, {position:"top-right", autoClose:3000});
-      toastError();
+      toast(`Ooooppss ${e}`, "autoclose:500");
     }
   };
   return (
