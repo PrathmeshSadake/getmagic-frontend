@@ -22,11 +22,14 @@ import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 export default function Dashboard(props) {
   console.log(useAuth);
   //we create a useEffect hook here to test out the auth parts, to be deleted or reused later
-  useEffect(() => {}, []);
+  // useEffect(() => {
+  //   console.log(`setting up useEffect`);
+  //   const toWrite = { FirstName: "APD", LastName: "D", Phone: "120212231232" };
+  //   const colRef = collection(db, "usermaster");
+  //   const firestore_db = addDoc(colRef, toWrite);
+  //   return console.log(`leaving useEffect`);
+  // }, []);
 
-  const toWrite = { FirstName: "APD", LastName: "D", Phone: "120212231232" };
-  const colRef = collection(db, "usermaster");
-  const firestore_db = addDoc(colRef, toWrite);
   return (
     <>
       <Navigation />

@@ -3,6 +3,8 @@ import SignUpLayout from "../layouts/signuplayout";
 import { useState } from "react";
 import { useAuth } from "../context/authcontext";
 import { Router, useRouter } from "next/router"; //this is to push a user to Dashboard after signing in
+import { ToastContainer, toast } from "react-toastify";
+
 export default function SignIn(props) {
   //TODO on Sep 17th
   // onSubmit, call Firebase singinwithemailandpassword and get auth object -> have it go to useContext
@@ -22,9 +24,8 @@ export default function SignIn(props) {
       );
       sessionStorage.setItem("Auth Token", auth_return.user.accessToken);
     } catch (e) {
-      console.log(
-        `You have this error, will be replacaed with Toastify -> ${e}`
-      );
+      const toastError = () => toast(`Oopss ${e}`, {position:"top-right", autoClose:3000});
+      toastError();
     }
   };
   return (
