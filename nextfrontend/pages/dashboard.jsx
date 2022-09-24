@@ -8,6 +8,8 @@ import Navigation from "../components/navigation";
 import Card from "../components/card";
 import { useAuth } from "../context/authcontext";
 import HomeLayout from "../layouts/homelayout";
+import { db } from "../firebase-config";
+import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 //Then
 // Start with moving out the si and su work into AuthContext -> then add a signout too.
 //Create a useAuth custom hook!(what!!!? Yay!!)
@@ -20,23 +22,18 @@ import HomeLayout from "../layouts/homelayout";
 export default function Dashboard(props) {
   console.log(useAuth);
   //we create a useEffect hook here to test out the auth parts, to be deleted or reused later
-  // useEffect(() => {
+  useEffect(() => {}, []);
 
-  //   <div className="h1">
-  //     <h1> you are logged in as </h1>
-  //   </div>;
-  //   toast("Hey you are signed in");
-  //   //the above is just a toastify message, to test if its working
-  //   setAuthToken(sessionStorage.getItem("Auth Token"));
-  // }, []);
-
+  const toWrite = { FirstName: "APD", LastName: "D", Phone: "120212231232" };
+  const colRef = collection(db, "usermaster");
+  const firestore_db = addDoc(colRef, toWrite);
   return (
     <>
       <Navigation />
       <Card />
-      <>Hey, you are in a protected route with this Auth</>)
+      <>Hey, you are in a protected route with this Auth</>
     </>
   );
 }
 
-Dashboard.PageLayout = HomeLayout 
+Dashboard.PageLayout = HomeLayout;
