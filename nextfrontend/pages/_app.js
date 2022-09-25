@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { useAuth } from "../context/authcontext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"
-const openRoutes = ["/", "/home", "/signup", "/index", "/signin", "/logout"];
+const openRoutes = ["/", "/home", "/signup", "/index", "/signin", "/logout", "/landingpage"];
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }) {
             </Component.PageLayout>
           ) : (
             <Component {...pageProps} />
-          )
+        )
         ) : (
           <ProtectedRoutes>
             {Component.PageLayout ? (

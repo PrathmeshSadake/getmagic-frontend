@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Head from "next/head";
 import HomeLayout from "../layouts/homelayout";
 import Navigation from "../components/navigation";
