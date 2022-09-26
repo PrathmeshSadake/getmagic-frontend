@@ -9,7 +9,7 @@ export default function Navigation(props) {
   return (
     <div className="flex flex-row justify-center align-middle p-2 gap-4 h-10 bg-slate-200 font-extrabold">
       <Link href="/home">
-        <a>Home</a>
+        <a> Home </a>
       </Link>
       <Link href="/signup">
         <a>Sign Up!</a>
