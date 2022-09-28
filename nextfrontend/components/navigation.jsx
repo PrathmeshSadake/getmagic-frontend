@@ -8,8 +8,8 @@ export default function Navigation(props) {
   const handleSignout = () => {signout()}
   return (
     <div className="flex flex-row justify-center align-middle p-2 gap-4 h-10 bg-slate-200 font-extrabold">
-      <Link href="/home">
-        <a> Home </a>
+      <Link href="/landingpage">
+        <a> Welcome </a>
       </Link>
       <Link href="/signup">
         <a>Sign Up!</a>

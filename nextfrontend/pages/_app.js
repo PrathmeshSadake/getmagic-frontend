@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { useAuth } from "../context/authcontext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"
-const openRoutes = ["/", "/home", "/signup", "/index", "/signin", "/logout", "/landingpage"];
+const openRoutes = ["/", "/home", "/signup", "/index", "/signin", "/logout", "/landingpage", "/faq"];
 
 
 

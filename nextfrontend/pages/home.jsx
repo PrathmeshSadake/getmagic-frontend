@@ -17,7 +17,7 @@ export default function Home(props) {
       <h1>{props.apiKey ? `hey there ${props.apiKey} thats the key!` : `hey its null`}</h1>
       <Navigation />
 
-      {/* <HomeCarousel /> */}
+      <HomeCarousel />
     </section>
   );
 }

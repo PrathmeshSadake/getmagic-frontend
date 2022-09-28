@@ -6,14 +6,11 @@ import { Router, useRouter } from "next/router"; //this is to push a user to Das
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
 export default function SignIn(props) {
-  //TODO on Sep 17th
-  // onSubmit, call Firebase singinwithemailandpassword and get auth object -> have it go to useContext
-  // In dashboard use the auth object(see dashboard.jsx after this)
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
-  const { user, signin } = useAuth();
-  const router = useRouter();
-  const handleSubmit = async (e) => {
+const [email, setEmail] = useState(null);
+const [password, setPassword] = useState(null);
+const { user, signin } = useAuth();
+const router = useRouter();
+const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const auth_return = await signin(email, password);
