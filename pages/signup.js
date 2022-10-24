@@ -1,10 +1,14 @@
+import Image from "next/image";
 import Link from "next/link";
+import Logo from "../assets/logo.png";
+import SignupBanner from "../assets/signupBanner.png";
 
 export default function SignUpPage() {
   return (
     <div className='min-h-full flex'>
       <div className='flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24'>
         <div className='mx-auto w-full max-w-sm lg:w-96'>
+          <Image height={80} width={80} src={Logo} alt='Logo' />
           <div>
             <h2 className='mt-6 text-3xl font-extrabold text-gray-900'>
               Create an account
@@ -13,7 +17,7 @@ export default function SignUpPage() {
               Already have an account?{" "}
               <Link href='/signin'>
                 <a className='font-medium text-indigo-600 hover:text-indigo-500'>
-                  Signin here
+                  Login here
                 </a>
               </Link>
             </p>
@@ -183,10 +187,11 @@ export default function SignUpPage() {
         </div>
       </div>
       <div className='hidden lg:block relative w-0 flex-1'>
-        <img
+        <Image
           className='absolute inset-0 h-full w-full object-cover'
-          src='https://images.unsplash.com/photo-1505904267569-f02eaeb45a4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80'
-          alt=''
+          src={SignupBanner}
+          layout='fill'
+          alt='Banner'
         />
       </div>
     </div>
