@@ -13,26 +13,34 @@ import {
 } from "@heroicons/react/24/outline";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
+import { useRouter } from "next/router";
+
+import Logo from "../assets/logo.png";
 
 const navigation = [
-  { name: "Home", href: "#", icon: HomeIcon, current: true },
-  { name: "User", href: "#", icon: UserIcon, current: false },
-  { name: "Pricing", href: "#", icon: BanknotesIcon, current: false },
+  { name: "Home", href: "/dashboard", icon: HomeIcon, current: true },
+  { name: "User", href: "/dashboard/user", icon: UserIcon, current: false },
+  {
+    name: "Pricing",
+    href: "/dashboard/pricing",
+    icon: BanknotesIcon,
+    current: false,
+  },
   {
     name: "Browse Brands",
-    href: "#",
+    href: "/dashboard/browse-brands",
     icon: MagnifyingGlassCircleIcon,
     current: false,
   },
   {
     name: "Creator Kollaborate",
-    href: "#",
+    href: "/dashboard/creator-kollaborate",
     icon: CursorArrowRaysIcon,
     current: false,
   },
   {
     name: "Create Contract",
-    href: "#",
+    href: "/dashboard/create-contract",
     icon: DocumentCheckIcon,
     current: false,
   },
@@ -49,9 +57,10 @@ function classNames(...classes) {
 
 const Layout = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const router = useRouter();
 
   return (
-    <div>
+    <div className=''>
       <Transition.Root show={sidebarOpen} as={Fragment}>
         <Dialog
           as='div'
@@ -139,10 +148,13 @@ const Layout = ({ children }) => {
       </Transition.Root>
 
       {/* Static sidebar for desktop */}
-      <div className='hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0'>
+      <div className='hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0 p-2 bg-gray-100'>
         {/* Sidebar component, swap this element with another sidebar if you like */}
-        <div className='flex flex-col flex-grow border-r border-gray-200 pt-5 bg-white overflow-y-auto'>
-          <div className='flex items-center flex-shrink-0 px-4'>GM</div>
+        <div className='flex flex-col flex-grow p-2 rounded-xl border-r border-gray-200 pt-5 bg-white overflow-y-auto'>
+          <div className='flex items-center flex-shrink-0 px-4'>
+            <Image height={50} width={50} src={Logo} alt='Logo' />
+            <h1 className='font-bold text-3xl pl-2'>GM</h1>
+          </div>
           <div className='mt-5 flex-grow flex flex-col'>
             <nav className='flex-1 px-2 pb-4 space-y-1'>
               {navigation.map((item) => (
@@ -150,16 +162,16 @@ const Layout = ({ children }) => {
                   key={item.name}
                   href={item.href}
                   className={classNames(
-                    item.current
-                      ? "bg-gray-100 text-gray-900"
+                    router.pathname === item.href
+                      ? "bg-blue-500 text-white"
                       : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
                     "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
                   )}
                 >
                   <item.icon
                     className={classNames(
-                      item.current
-                        ? "text-gray-500"
+                      router.pathname === item.href
+                        ? "text-white"
                         : "text-gray-400 group-hover:text-gray-500",
                       "mr-3 flex-shrink-0 h-6 w-6"
                     )}
@@ -172,7 +184,7 @@ const Layout = ({ children }) => {
           </div>
         </div>
       </div>
-      <div className='md:pl-64 flex flex-col flex-1'>
+      <div className='md:pl-64 flex flex-col flex-1 p-2 bg-gray-100'>
         <div className='sticky top-0 z-10 flex-shrink-0 flex h-16 bg-white shadow'>
           <button
             type='button'
@@ -261,13 +273,8 @@ const Layout = ({ children }) => {
           </div>
         </div>
 
-        <main className='flex-1'>
+        <main className='flex-1 bg-white mt-2 min-h-screen'>
           <div className='py-6'>
-            <div className='max-w-7xl mx-auto px-4 sm:px-6 md:px-8'>
-              {/* <h1 className='text-2xl font-semibold text-gray-900'>
-                Dashboard
-              </h1> */}
-            </div>
             <div className='max-w-7xl mx-auto px-4 sm:px-6 md:px-8'>
               {/* Replace with your content */}
               {children}
