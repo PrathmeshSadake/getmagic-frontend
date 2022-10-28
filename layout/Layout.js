@@ -11,7 +11,7 @@ import {
   XMarkIcon,
   Cog8ToothIcon,
 } from "@heroicons/react/24/outline";
-import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
+import { MagnifyingGlassIcon, BellIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
@@ -153,7 +153,7 @@ const Layout = ({ children }) => {
         <div className='flex flex-col flex-grow p-2 rounded-xl border-r border-gray-200 pt-5 bg-white overflow-y-auto'>
           <div className='flex items-center flex-shrink-0 px-4'>
             <Image height={50} width={50} src={Logo} alt='Logo' />
-            <h1 className='font-bold text-3xl pl-2'>GM</h1>
+            <h1 className='font-semibold text-3xl pl-2'>GM</h1>
           </div>
           <div className='mt-5 flex-grow flex flex-col'>
             <nav className='flex-1 px-2 pb-4 space-y-1'>
@@ -223,6 +223,13 @@ const Layout = ({ children }) => {
                 className='bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
               >
                 <span className='sr-only'>View notifications</span>
+                <BellIcon className='h-6 w-6' aria-hidden='true' />
+              </button>
+              <button
+                type='button'
+                className='bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+              >
+                <span className='sr-only'>Settings</span>
                 <Cog8ToothIcon className='h-6 w-6' aria-hidden='true' />
               </button>
 
