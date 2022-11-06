@@ -46,9 +46,9 @@ const navigation = [
   },
 ];
 const userNavigation = [
-  { name: "Your Profile", href: "#" },
-  { name: "Settings", href: "#" },
-  { name: "Sign out", href: "#" },
+  { name: "Your Profile", callback: () => {} },
+  { name: "Settings", callback: () => {} },
+  { name: "Sign out", callback: () => {} },
 ];
 
 function classNames(...classes) {
