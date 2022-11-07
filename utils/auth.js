@@ -5,7 +5,10 @@ import {
   sendEmailVerification,
   GoogleAuthProvider,
   FacebookAuthProvider,
+  signOut,
+  signInWithPopup,
 } from "firebase/auth";
+import { useRouter } from "next/router";
 import { auth } from "../config/firebase-config";
 const googleProvider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
@@ -51,8 +54,6 @@ export const signInWithGoogle = () =>
       // Handle Errors here.
       const errorCode = error.code;
       const errorMessage = error.message;
-      // The email of the user's account used.
-      const email = error.customData.email;
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
       console.log("An Error has Occurred", errorMessage);
@@ -81,13 +82,14 @@ export const signInWithFacebook = () =>
     });
 
 // Sign Out
-export const signOutAUser = signOut(auth)
-  .then(() => {
-    console.log("Sign-out successful.");
-  })
-  .catch((error) => {
-    console.log("An error happened.", error.message);
-  });
+export const signOutAUser = () =>
+  signOut(auth)
+    .then(() => {
+      console.log("Sign-out successful.");
+    })
+    .catch((error) => {
+      console.log("An error happened.", error.message);
+    });
 
 // Send a user a verification email
 export const sendUserAVerificationEmail = () =>

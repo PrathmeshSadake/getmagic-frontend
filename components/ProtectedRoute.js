@@ -1,18 +1,11 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../config/firebase-config";
 
 const ProtectedRoute = ({ children }) => {
   const router = useRouter();
-  const [user, setUser] = useState(null);
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      setUser(user);
-    } else {
-      setUser(null);
-    }
-  });
+  const [user, loading, error] = useAuthState(auth);
 
   useEffect(() => {
     if (!user) {
@@ -20,7 +13,7 @@ const ProtectedRoute = ({ children }) => {
     }
   }, [user, router]);
 
-  return <>{user ? children : null}</>;
+  return <>{loading ? (user ? children : null) : children}</>;
 };
 
 export default ProtectedRoute;

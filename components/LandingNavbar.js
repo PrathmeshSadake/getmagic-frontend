@@ -99,10 +99,10 @@ export default function LandingNavbar() {
             </a>
           </Popover.Group>
           <div className='hidden md:flex items-center justify-end md:flex-1 lg:w-0'>
-            <div class='cursor-pointer flex justify-center items-center font-medium py-2 px-3 rounded-full rounded-r-none bg-white text-gray-800 border-2 border-black'>
+            <div className='cursor-pointer flex justify-center items-center font-medium py-2 px-3 rounded-full rounded-r-none bg-white text-gray-800 border-2 border-black'>
               <p className='text-sm text-gray-800 tracking-widest'>BRAND</p>
             </div>
-            <div class='cursor-pointer flex justify-center items-center font-medium py-2 px-3 rounded-full rounded-l-none text-indigo-100 bg-[#1F3E66] border-2 border-[#1F3E66]'>
+            <div className='cursor-pointer flex justify-center items-center font-medium py-2 px-3 rounded-full rounded-l-none text-indigo-100 bg-[#1F3E66] border-2 border-[#1F3E66]'>
               <p className='text-sm text-white tracking-widest'>CREATOR</p>
             </div>
 
@@ -177,7 +177,7 @@ export default function LandingNavbar() {
               <div>
                 <div
                   onClick={handlePushToLogin}
-                  className='flex items-center justify-center bg-[#1F3E66] py-2 px-3'
+                  className='cursor-pointer flex items-center justify-center bg-[#1F3E66] py-2 px-3'
                 >
                   <div className='bg-white p-0.5 rounded-full'>
                     <LockClosedIcon className='h-3 w-3 text-[#1F3E66]' />
