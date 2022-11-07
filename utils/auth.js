@@ -5,6 +5,8 @@ import {
   sendEmailVerification,
   GoogleAuthProvider,
   FacebookAuthProvider,
+  signOut,
+  signInWithPopup,
 } from "firebase/auth";
 import { auth } from "../config/firebase-config";
 const googleProvider = new GoogleAuthProvider();
@@ -81,13 +83,14 @@ export const signInWithFacebook = () =>
     });
 
 // Sign Out
-export const signOutAUser = signOut(auth)
-  .then(() => {
-    console.log("Sign-out successful.");
-  })
-  .catch((error) => {
-    console.log("An error happened.", error.message);
-  });
+export const signOutAUser = () =>
+  signOut(auth)
+    .then(() => {
+      console.log("Sign-out successful.");
+    })
+    .catch((error) => {
+      console.log("An error happened.", error.message);
+    });
 
 // Send a user a verification email
 export const sendUserAVerificationEmail = () =>
