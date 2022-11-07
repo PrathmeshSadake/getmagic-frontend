@@ -177,7 +177,7 @@ export default function LandingNavbar() {
               <div>
                 <div
                   onClick={handlePushToLogin}
-                  className='flex items-center justify-center bg-[#1F3E66] py-2 px-3'
+                  className='cursor-pointer flex items-center justify-center bg-[#1F3E66] py-2 px-3'
                 >
                   <div className='bg-white p-0.5 rounded-full'>
                     <LockClosedIcon className='h-3 w-3 text-[#1F3E66]' />

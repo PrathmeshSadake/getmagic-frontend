@@ -16,6 +16,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 
 import Logo from "../assets/logo.png";
+import { signOutAUser } from "../utils/auth";
 
 const navigation = [
   { name: "Home", href: "/dashboard", icon: HomeIcon, current: true },
@@ -48,7 +49,12 @@ const navigation = [
 const userNavigation = [
   { name: "Your Profile", callback: () => {} },
   { name: "Settings", callback: () => {} },
-  { name: "Sign out", callback: () => {} },
+  {
+    name: "Sign out",
+    callback: () => {
+      signOutAUser();
+    },
+  },
 ];
 
 function classNames(...classes) {
@@ -261,15 +267,15 @@ const Layout = ({ children }) => {
                     {userNavigation.map((item) => (
                       <Menu.Item key={item.name}>
                         {({ active }) => (
-                          <a
-                            href={item.href}
+                          <button
+                            onClick={item.callback}
                             className={classNames(
                               active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
+                              "w-full text-left cursor-pointer block px-4 py-2 text-sm text-gray-700"
                             )}
                           >
                             {item.name}
-                          </a>
+                          </button>
                         )}
                       </Menu.Item>
                     ))}

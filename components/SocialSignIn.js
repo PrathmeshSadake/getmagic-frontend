@@ -1,8 +1,15 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
 import { signInWithFacebook, signInWithGoogle } from "../utils/auth";
 
 const SocialSignIn = () => {
+  const router = useRouter();
+  const handleGoogleSignIn = () => {
+    signInWithGoogle().then(() => {
+      router.replace("/dashboard");
+    });
+  };
   return (
     <div>
       <div>
@@ -11,7 +18,7 @@ const SocialSignIn = () => {
         <div className='mt-1 grid grid-cols-2 gap-3'>
           <div>
             <button
-              onClick={signInWithGoogle}
+              onClick={handleGoogleSignIn}
               className='w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'
             >
               <span className='sr-only'>Sign in with Google</span>
