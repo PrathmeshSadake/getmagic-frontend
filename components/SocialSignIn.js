@@ -1,15 +1,40 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React from "react";
-import { signInWithFacebook, signInWithGoogle } from "../utils/auth";
+import React, { useCallback } from "react";
+import {
+  FacebookAuthProvider,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
+import { auth } from "../config/firebase-config";
 
 const SocialSignIn = () => {
   const router = useRouter();
-  const handleGoogleSignIn = () => {
-    signInWithGoogle().then(() => {
-      router.replace("/dashboard");
-    });
-  };
+  const handleGoogleSignIn = useCallback(async () => {
+    const provider = new GoogleAuthProvider();
+    // additional scopes can be added as per requirement
+
+    try {
+      await signInWithPopup(auth, provider);
+      router.push("/dashboard");
+    } catch (error) {
+      console.log("error");
+      alert(error);
+    }
+  }, [router]);
+  const signInWithFacebook = useCallback(async () => {
+    const provider = new FacebookAuthProvider();
+    provider.addScope("public_profile");
+    // additional scopes can be added as per requirement
+    try {
+      const result = await signInWithPopup(auth, provider);
+      console.log(result);
+      router.push("/dashboard");
+    } catch (error) {
+      console.log("error");
+      alert(error);
+    }
+  }, [router]);
   return (
     <div>
       <div>

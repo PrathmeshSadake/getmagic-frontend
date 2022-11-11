@@ -53,6 +53,7 @@ const userNavigation = [
     name: "Sign out",
     callback: () => {
       signOutAUser();
+      
     },
   },
 ];

@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import ProtectedRoute from "../components/ProtectedRoute";
 import { auth } from "../config/firebase-config";
+import { AuthProvider } from "../context/AuthContext";
 import "../styles/globals.css";
 
 const openRoutes = [
@@ -34,15 +35,9 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         )
       ) : (
-        <ProtectedRoute>
-          {Component.PageLayout ? (
-            <Component.PageLayout>
-              <Component {...pageProps} />
-            </Component.PageLayout>
-          ) : (
-            <Component {...pageProps} />
-          )}
-        </ProtectedRoute>
+        <AuthProvider>
+          <Component {...pageProps} />
+        </AuthProvider>
       )}
     </React.Fragment>
   );
