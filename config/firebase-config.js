@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import { getApps, initializeApp } from "firebase/app";
 import {
   browserLocalPersistence,
   getAuth,
@@ -17,7 +17,14 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// const app = initializeApp(firebaseConfig);
+let firebaseApp;
+
+if (!getApps().length) {
+  firebaseApp = initializeApp(firebaseConfig);
+}
+
+export const app = firebaseApp;
 export const db = getFirestore(app);
 export const auth = getAuth(app);
 (async () => {
