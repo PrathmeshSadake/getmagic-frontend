@@ -1,3 +1,5 @@
+import React from "react";
+
 const LandingNewsletter = () => {
   return (
     <div className='bg-white py-16 sm:py-24'>
