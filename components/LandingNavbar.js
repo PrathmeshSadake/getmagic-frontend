@@ -98,6 +98,7 @@ export default function LandingNavbar() {
               BECOME A CREATOR
             </a>
           </Popover.Group>
+          // Compomenet Source : https://flowbite.com/docs/forms/toggle/ , no dependencies except Tailwind
           <div className='hidden md:flex items-center justify-end md:flex-1 lg:w-0'>
             <div className='cursor-pointer flex justify-center items-center font-medium py-2 px-3 rounded-full rounded-r-none bg-white text-gray-800 border-2 border-black'>
               <p className='text-sm text-gray-800 tracking-widest'>BRAND</p>
