@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useContext, useState } from "react";
 import { Dialog, Menu, Transition } from "@headlessui/react";
 import {
   MagnifyingGlassCircleIcon,
@@ -17,6 +17,8 @@ import { useRouter } from "next/router";
 
 import Logo from "../assets/logo.png";
 import { signOutAUser } from "../utils/auth";
+import Avatar from "react-avatar";
+import { AuthContext } from "../context/AuthContext";
 
 const navigation = [
   { name: "Home", href: "/dashboard", icon: HomeIcon, current: true },
@@ -53,7 +55,6 @@ const userNavigation = [
     name: "Sign out",
     callback: () => {
       signOutAUser();
-      
     },
   },
 ];
@@ -65,6 +66,10 @@ function classNames(...classes) {
 const Layout = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const router = useRouter();
+
+  const { currentUser, userData, loading } = useContext(AuthContext);
+
+  console.log(currentUser);
 
   return (
     <div className=''>
@@ -245,13 +250,11 @@ const Layout = ({ children }) => {
                 <div>
                   <Menu.Button className='max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'>
                     <span className='sr-only'>Open user menu</span>
-                    <Image
-                      className='h-8 w-8 rounded-full'
-                      src='https://source.unsplash.com/iEEBWgY_6lA'
-                      // layout='fill'
-                      width={32}
-                      height={32}
-                      alt='Profile Picture'
+                    <Avatar
+                      size='32'
+                      round={true}
+                      name={userData.userName}
+                      src={userData.userPhotoLink}
                     />
                   </Menu.Button>
                 </div>
