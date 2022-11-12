@@ -41,13 +41,15 @@ export const AuthProvider = ({ children }) => {
   console.log("USER DATA", userData);
   console.log("CURRENT DATA", currentUser);
 
-  if (loading) {
-    return <>Loading...</>;
-  }
+  // if (loading) {
+  //   return <>Loading...</>;
+  // }
 
-  if (currentUser == null) {
-    router.push("/signin");
-    return <></>;
+  if (typeof window !== "undefined") {
+    if (currentUser == null && !loading) {
+      router.push("/signin");
+      return <></>;
+    }
   }
 
   return (
@@ -55,6 +57,7 @@ export const AuthProvider = ({ children }) => {
       value={{
         currentUser,
         userData,
+        loading,
       }}
     >
       {children}

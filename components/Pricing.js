@@ -3,8 +3,8 @@ import { CheckIcon } from "@heroicons/react/24/outline";
 const pricing = {
   tiers: [
     {
-      title: "Freelancer",
-      price: 24,
+      title: "Getting Started",
+      price: "$10",
       frequency: "/month",
       description: "The essentials to provide your best work for clients.",
       features: [
@@ -13,12 +13,12 @@ const pricing = {
         "Basic analytics",
         "48-hour support response time",
       ],
-      cta: "Monthly billing",
+      cta: "Buy",
       mostPopular: false,
     },
     {
-      title: "Startup",
-      price: 32,
+      title: "Pro",
+      price: "$24",
       frequency: "/month",
       description: "A plan that scales with your rapidly growing business.",
       features: [
@@ -28,12 +28,12 @@ const pricing = {
         "24-hour support response time",
         "Marketing automations",
       ],
-      cta: "Monthly billing",
+      cta: "Buy",
       mostPopular: true,
     },
     {
       title: "Enterprise",
-      price: 48,
+      price: "Contact Us for Pricing",
       frequency: "/month",
       description: "Dedicated support and infrastructure for your company.",
       features: [
@@ -44,7 +44,7 @@ const pricing = {
         "Marketing automations",
         "Custom integrations",
       ],
-      cta: "Monthly billing",
+      cta: "Buy",
       mostPopular: false,
     },
   ],
@@ -81,14 +81,7 @@ const Pricing = () => {
                   Most popular
                 </p>
               ) : null}
-              <p className='mt-4 flex items-baseline text-gray-900'>
-                <span className='text-5xl font-extrabold tracking-tight'>
-                  ${tier.price}
-                </span>
-                <span className='ml-1 text-xl font-semibold'>
-                  {tier.frequency}
-                </span>
-              </p>
+
               <p className='mt-6 text-gray-500'>{tier.description}</p>
 
               {/* Feature list */}
@@ -103,6 +96,14 @@ const Pricing = () => {
                   </li>
                 ))}
               </ul>
+              <div className='text-center'>
+                <p className='mt-4 flex items-baseline text-gray-900 text-center w-full text-5xl font-semibold tracking-tight'>
+                  {tier.price}
+                  {/* <span className='ml-1 text-xl font-semibold'>
+                  {tier.frequency}
+                </span> */}
+                </p>
+              </div>
             </div>
 
             <a
