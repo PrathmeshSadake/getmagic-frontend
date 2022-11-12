@@ -1,4 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
+/*https://flowbite.com/docs/forms/toggle/ */
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import {
@@ -99,7 +100,6 @@ export default function LandingNavbar() {
             </a>
           </Popover.Group>
           <div className='hidden md:flex items-center justify-end md:flex-1 lg:w-0'>
-            {/* source https://flowbite.com/docs/forms/toggle/ */}
             <div className='cursor-pointer flex justify-center items-center font-medium py-2 px-3 rounded-full rounded-r-none bg-white text-gray-800 border-2 border-black'>
               <p className='text-sm text-gray-800 tracking-widest'>BRAND</p>
             </div>
