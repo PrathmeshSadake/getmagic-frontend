@@ -10,65 +10,42 @@ import {
   XMarkIcon,
   LockClosedIcon,
 } from "@heroicons/react/24/outline";
-// import { ChevronDownIcon } from "@heroicons/react/24/solid";
-
-const resources = [
-  {
-    name: "Help Center",
-    description:
-      "Get all of your questions answered in our forums or contact support.",
-    href: "#",
-    icon: PhoneIcon,
-  },
-  {
-    name: "Guides",
-    description:
-      "Learn how to maximize our platform to get the most out of it.",
-    href: "#",
-    icon: BookmarkIcon,
-  },
-  {
-    name: "Events",
-    description:
-      "See what meet-ups and other events we might be planning near you.",
-    href: "#",
-    icon: CalendarIcon,
-  },
-  {
-    name: "Security",
-    description: "Understand how we take your privacy seriously.",
-    href: "#",
-    icon: ShieldCheckIcon,
-  },
-];
+import Logo from "../assets/logo.png";
+import Image from "next/image";
+import { useRouter } from "next/router";
 
 export default function LandingNavbar() {
+  const router = useRouter();
+  const handlePushToLogin = (e) => {
+    e.preventDefault();
+    router.push("/signin");
+  };
   return (
     <Popover className='relative bg-white'>
-      <div className='max-w-7xl mx-auto px-4 sm:px-6'>
+      <div className='max-w-7xl mx-auto px-4'>
         <div className='flex justify-between items-center py-6 md:justify-start md:space-x-8'>
-          <div className='flex justify-start lg:flex-1'>
+          <div className='flex justify-start flex-1 mr-4 md:mr-0'>
             <form className='w-full'>
               <label
-                for='default-search'
-                class='mb-2 text-sm font-medium text-gray-900 sr-only'
+                htmlFor='default-search'
+                className='mb-2 text-sm font-medium text-gray-900 sr-only'
               >
                 Search
               </label>
-              <div class='relative'>
-                <div class='flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none'>
+              <div className='relative'>
+                <div className='flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none'>
                   <svg
                     aria-hidden='true'
-                    class='w-5 h-5 text-gray-500'
+                    className='w-5 h-5 text-gray-500'
                     fill='none'
                     stroke='currentColor'
                     viewBox='0 0 24 24'
                     xmlns='http://www.w3.org/2000/svg'
                   >
                     <path
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
-                      stroke-width='2'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth='2'
                       d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
                     ></path>
                   </svg>
@@ -76,13 +53,13 @@ export default function LandingNavbar() {
                 <input
                   type='search'
                   id='default-search'
-                  class='block p-2 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300'
-                  placeholder='Search for creators, trends and sounds'
+                  className='block p-2 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300'
+                  placeholder='Search for creators, trends or sounds'
                   required
                 />
                 {/* <button
                   type='submit'
-                  class='text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+                  className='text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
                 >
                   Search
                 </button> */}
@@ -122,41 +99,21 @@ export default function LandingNavbar() {
             </a>
           </Popover.Group>
           <div className='hidden md:flex items-center justify-end md:flex-1 lg:w-0'>
-            <div class='flex items-center px-4 rounded border border-gray-200'>
-              <input
-                id='bordered-radio-1'
-                type='radio'
-                value=''
-                name='bordered-radio'
-                class='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300'
-              />
-              <label
-                for='bordered-radio-1'
-                class='py-2 ml-2 w-full text-sm font-medium text-gray-900'
-              >
-                Brand
-              </label>
+            <div className='cursor-pointer flex justify-center items-center font-medium py-2 px-3 rounded-full rounded-r-none bg-white text-gray-800 border-2 border-black'>
+              <p className='text-sm text-gray-800 tracking-widest'>BRAND</p>
             </div>
-            <div class='flex items-center ml-2 px-4 rounded border border-gray-200'>
-              <input
-                checked
-                id='bordered-radio-2'
-                type='radio'
-                value=''
-                name='bordered-radio'
-                class='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300'
-              />
-              <label
-                for='bordered-radio-2'
-                class='py-2 ml-2 w-full text-sm font-medium text-gray-900'
-              >
-                Creator
-              </label>
+            <div className='cursor-pointer flex justify-center items-center font-medium py-2 px-3 rounded-full rounded-l-none text-indigo-100 bg-[#1F3E66] border-2 border-[#1F3E66]'>
+              <p className='text-sm text-white tracking-widest'>CREATOR</p>
             </div>
 
-            <div className='ml-4 flex items-center justify-center bg-indigo-500 py-2 px-3'>
-              <LockClosedIcon className='h-4 w-4 text-white' />
-              <p class='ml-2 text-sm text-white tracking-widest'>LOGIN</p>
+            <div
+              onClick={handlePushToLogin}
+              className='rounded-full cursor-pointer ml-4 flex items-center justify-center bg-[#1F3E66] border-2 border-[#1F3E66] py-2 px-3'
+            >
+              <div className='bg-white p-0.5 rounded-full'>
+                <LockClosedIcon className='h-3 w-3 text-[#1F3E66]' />
+              </div>
+              <p className='ml-2 text-sm text-white tracking-widest'>LOGIN</p>
             </div>
           </div>
         </div>
@@ -178,12 +135,9 @@ export default function LandingNavbar() {
           <div className='rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50'>
             <div className='pt-5 pb-6 px-5'>
               <div className='flex items-center justify-between'>
-                <div>
-                  <img
-                    className='h-8 w-auto'
-                    src='https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg'
-                    alt='Workflow'
-                  />
+                <div className='flex items-center flex-shrink-0 px-4'>
+                  <Image height={50} width={50} src={Logo} alt='Logo' />
+                  <h1 className='font-semibold text-3xl pl-2'>GM</h1>
                 </div>
                 <div className='-mr-2'>
                   <Popover.Button className='bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500'>
@@ -197,40 +151,41 @@ export default function LandingNavbar() {
               <div className='grid grid-cols-2 gap-y-4 gap-x-8'>
                 <a
                   href='#'
-                  className='text-base font-medium text-gray-900 hover:text-gray-700'
+                  className='text-sm  text-gray-900 hover:text-gray-700'
                 >
-                  Pricing
+                  HOW IT WORKS
                 </a>
-
                 <a
                   href='#'
-                  className='text-base font-medium text-gray-900 hover:text-gray-700'
+                  className='text-sm  text-gray-900 hover:text-gray-700'
                 >
-                  Docs
+                  PRICING
                 </a>
-                {resources.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className='text-base font-medium text-gray-900 hover:text-gray-700'
-                  >
-                    {item.name}
-                  </a>
-                ))}
+                <a
+                  href='#'
+                  className='text-sm  text-gray-900 hover:text-gray-700'
+                >
+                  CREATOR LIVE!
+                </a>{" "}
+                <a
+                  href='#'
+                  className='text-sm  text-gray-900 hover:text-gray-700'
+                >
+                  BECOME A CREATOR
+                </a>
               </div>
               <div>
-                <a
-                  href='#'
-                  className='w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700'
+                <div
+                  onClick={handlePushToLogin}
+                  className='cursor-pointer flex items-center justify-center bg-[#1F3E66] py-2 px-3'
                 >
-                  Sign up
-                </a>
-                <p className='mt-6 text-center text-base font-medium text-gray-500'>
-                  Existing customer?{" "}
-                  <a href='#' className='text-indigo-600 hover:text-indigo-500'>
-                    Sign in
-                  </a>
-                </p>
+                  <div className='bg-white p-0.5 rounded-full'>
+                    <LockClosedIcon className='h-3 w-3 text-[#1F3E66]' />
+                  </div>
+                  <p className='ml-2 text-sm text-white tracking-widest'>
+                    LOGIN
+                  </p>
+                </div>
               </div>
             </div>
           </div>

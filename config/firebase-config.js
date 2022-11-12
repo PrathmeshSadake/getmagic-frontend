@@ -1,5 +1,10 @@
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getApps, initializeApp } from "firebase/app";
+import {
+  browserLocalPersistence,
+  getAuth,
+  setPersistence,
+} from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_API_KEY,
@@ -12,5 +17,16 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// const app = initializeApp(firebaseConfig);
+let firebaseApp;
+
+if (!getApps().length) {
+  firebaseApp = initializeApp(firebaseConfig);
+}
+
+export const app = firebaseApp;
+export const db = getFirestore(app);
+export const auth = getAuth(app);
+(async () => {
+  await setPersistence(auth, browserLocalPersistence);
+})();
