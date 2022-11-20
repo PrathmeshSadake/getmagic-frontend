@@ -10,8 +10,13 @@ import {
   UserIcon,
   XMarkIcon,
   Cog8ToothIcon,
+  LinkIcon,
 } from "@heroicons/react/24/outline";
-import { MagnifyingGlassIcon, BellIcon } from "@heroicons/react/24/solid";
+import {
+  MagnifyingGlassIcon,
+  BellIcon,
+  BookmarkIcon,
+} from "@heroicons/react/24/solid";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
@@ -19,9 +24,10 @@ import Logo from "../assets/logo.png";
 import { signOutAUser } from "../utils/auth";
 import Avatar from "react-avatar";
 import { AuthContext } from "../context/AuthContext";
+import Link from "next/link";
 
 const navigation = [
-  { name: "Home", href: "/dashboard", icon: HomeIcon, current: true },
+  { name: "Home", href: "/dashboard/home", icon: HomeIcon, current: true },
   { name: "User", href: "/dashboard/user", icon: UserIcon, current: false },
   {
     name: "Pricing",
@@ -45,6 +51,18 @@ const navigation = [
     name: "Create Contract",
     href: "/dashboard/create-contract",
     icon: DocumentCheckIcon,
+    current: false,
+  },
+  {
+    name: "My Socials",
+    href: "/dashboard/my-socials",
+    icon: LinkIcon,
+    current: false,
+  },
+  {
+    name: "Saved Leads",
+    href: "/dashboard/saved-leads",
+    icon: BookmarkIcon,
     current: false,
   },
 ];
@@ -170,27 +188,27 @@ const Layout = ({ children }) => {
           <div className='mt-5 flex-grow flex flex-col'>
             <nav className='flex-1 px-2 pb-4 space-y-1'>
               {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className={classNames(
-                    router.pathname === item.href
-                      ? "bg-blue-500 text-white"
-                      : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
-                    "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
-                  )}
-                >
-                  <item.icon
+                <Link key={item.name} href={item.href}>
+                  <a
                     className={classNames(
                       router.pathname === item.href
-                        ? "text-white"
-                        : "text-gray-400 group-hover:text-gray-500",
-                      "mr-3 flex-shrink-0 h-6 w-6"
+                        ? "bg-blue-500 text-white"
+                        : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
+                      "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
                     )}
-                    aria-hidden='true'
-                  />
-                  {item.name}
-                </a>
+                  >
+                    <item.icon
+                      className={classNames(
+                        router.pathname === item.href
+                          ? "text-white"
+                          : "text-gray-400 group-hover:text-gray-500",
+                        "mr-3 flex-shrink-0 h-6 w-6"
+                      )}
+                      aria-hidden='true'
+                    />
+                    {item.name}
+                  </a>
+                </Link>
               ))}
             </nav>
           </div>

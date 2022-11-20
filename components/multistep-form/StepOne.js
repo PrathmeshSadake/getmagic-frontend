@@ -59,33 +59,6 @@ const StepOne = () => {
                   className='mt-2 p-3 block w-full rounded-md border-gray-300 border-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
                 />
               </div>
-              <div className='col-span-3'></div>
-              <div className='col-span-6'>
-                <div className='flex items-start'>
-                  <div className='flex h-6 items-center'>
-                    <input
-                      id='comments'
-                      name='comments'
-                      type='checkbox'
-                      className='h-6 w-6 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
-                    />
-                  </div>
-
-                  <div className='ml-3 text-sm'>
-                    <label
-                      htmlFor='comments'
-                      className='font-medium text-gray-700'
-                    >
-                      Open to white listing?
-                    </label>
-                    <p className='text-gray-500'>
-                      Whitelisting is posting a brand partners sponsored content
-                      on your social handle.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
               <div className='col-span-6 sm:col-span-3'>
                 <label
                   htmlFor='income'
@@ -111,6 +84,47 @@ const StepOne = () => {
                     <option key={income}>{income}</option>
                   ))}
                 </select>
+              </div>
+              <div className='col-span-6 sm:col-span-3'>
+                <div className='flex items-start'>
+                  <div className='flex h-6 items-center'>
+                    <input
+                      id='comments'
+                      name='comments'
+                      type='checkbox'
+                      className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
+                    />
+                  </div>
+
+                  <div className='ml-2 text-sm'>
+                    <label
+                      htmlFor='comments'
+                      className='font-medium text-gray-700'
+                    >
+                      Open to white listing?
+                    </label>
+                    <p className='text-gray-500'>
+                      Whitelisting is posting a brand partners sponsored content
+                      on your social handle.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className='col-span-6 sm:col-span-3'></div>
+              <div className='col-span-6 sm:col-span-3'>
+                <label
+                  htmlFor='phone-number'
+                  className='block text-sm font-medium text-gray-700'
+                >
+                  Have an Invitation Code? ( Optional )
+                </label>
+                <input
+                  type='text'
+                  name='email-address'
+                  id='email-address'
+                  autoComplete='email'
+                  className='mt-2 p-3 block w-full rounded-md border-gray-300 border-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
+                />
               </div>
             </div>
           </div>

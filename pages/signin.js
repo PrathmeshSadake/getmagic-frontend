@@ -18,7 +18,7 @@ export default function SignInPage() {
       event.preventDefault();
       try {
         await signInWithEmailAndPassword(auth, email, password);
-        router.push("/dashboard");
+        router.push("/dashboard/home");
       } catch (error) {
         console.log("error");
         alert(error);
@@ -27,13 +27,14 @@ export default function SignInPage() {
     [router]
   );
   const currentUser = useContext(AuthContext);
-  // console.log(context);
+  console.log(currentUser);
 
   console.log(useContext(AuthContext));
-
   if (currentUser) {
-    router.push("/dashboard");
-    return <></>;
+    if (typeof window !== "undefined") {
+      router.push("/dashboard/home");
+      return <></>;
+    }
   } else {
     return (
       <div className='min-h-full flex'>
