@@ -6,6 +6,7 @@ import { AuthProvider } from "../context/AuthContext";
 import "../assets/fonts/GT Walsheim/stylesheet.css";
 import gsap from "gsap";
 import "../styles/globals.css";
+import Layout from "../layout/Layout";
 
 const openRoutes = [
   "/",
@@ -19,11 +20,11 @@ const openRoutes = [
 ];
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      console.log(user);
-    }
-  });
+  // onAuthStateChanged(auth, (user) => {
+  //   if (user) {
+  //     console.log(user);
+  //   }
+  // });
 
   // Code for cursor animation
   // https://codepen.io/GreenSock/pen/WNNNBpo
@@ -56,21 +57,18 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <React.Fragment>
-      {openRoutes.includes(router.pathname) ? (
-        Component.PageLayout ? (
-          <Component.PageLayout>
-            <Component {...pageProps} />
-          </Component.PageLayout>
-        ) : (
-          <Component {...pageProps} />
-        )
-      ) : (
+      {!openRoutes.includes(router.pathname) ? (
         <AuthProvider>
-          <Component {...pageProps} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
         </AuthProvider>
+      ) : (
+        <React.Fragment>
+          <Component {...pageProps} />
+          {router.pathname == "/" && <div className='ball hidden lg:block' />}
+        </React.Fragment>
       )}
-      {/* Custom Cursor */}
-      <div class='ball hidden lg:block'></div>
     </React.Fragment>
   );
 }

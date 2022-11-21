@@ -1,11 +1,5 @@
-import DataTable from "../../components/Table";
-import Layout from "../../layout/Layout";
-
-const Home = () => {
-  return (
-    <Layout>
-      <DataTable />
-    </Layout>
-  );
+const Dashboard = () => {
+  return <div>index</div>;
 };
-export default Home;
+
+export default Dashboard;
