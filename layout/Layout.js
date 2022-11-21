@@ -78,17 +78,17 @@ const Layout = ({ children }) => {
   const userNavigation = [
     {
       name: "Your Profile",
-      callback: () => router.push("dashboard/user/profile"),
+      callback: () => router.push("/dashboard/user/profile"),
       icon: UserIcon,
     },
     {
       name: "Saved Leads",
-      callback: () => router.push("dashboard/user/saved-leads"),
+      callback: () => router.push("/dashboard/user/saved-leads"),
       icon: BookmarkIcon,
     },
     {
       name: "Settings",
-      callback: () => router.push("dashboard/user/settings"),
+      callback: () => router.push("/dashboard/user/settings"),
       icon: Cog8ToothIcon,
     },
     {
