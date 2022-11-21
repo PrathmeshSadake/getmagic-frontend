@@ -11,12 +11,11 @@ import {
   XMarkIcon,
   Cog8ToothIcon,
   LinkIcon,
-} from "@heroicons/react/24/outline";
-import {
-  MagnifyingGlassIcon,
-  BellIcon,
+  KeyIcon,
   BookmarkIcon,
-} from "@heroicons/react/24/solid";
+  BellIcon,
+} from "@heroicons/react/24/outline";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
@@ -66,16 +65,6 @@ const navigation = [
     current: false,
   },
 ];
-const userNavigation = [
-  { name: "Your Profile", callback: () => {} },
-  { name: "Settings", callback: () => {} },
-  {
-    name: "Sign out",
-    callback: () => {
-      signOutAUser();
-    },
-  },
-];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -86,8 +75,30 @@ const Layout = ({ children }) => {
   const router = useRouter();
 
   const { currentUser, userData, loading } = useContext(AuthContext);
-
-  console.log(currentUser);
+  const userNavigation = [
+    {
+      name: "Your Profile",
+      callback: () => router.push("dashboard/user/profile"),
+      icon: UserIcon,
+    },
+    {
+      name: "Saved Leads",
+      callback: () => router.push("dashboard/user/saved-leads"),
+      icon: BookmarkIcon,
+    },
+    {
+      name: "Settings",
+      callback: () => router.push("dashboard/user/settings"),
+      icon: Cog8ToothIcon,
+    },
+    {
+      name: "Sign out",
+      callback: () => {
+        signOutAUser();
+      },
+      icon: KeyIcon,
+    },
+  ];
 
   return (
     <div className=''>
@@ -145,27 +156,27 @@ const Layout = ({ children }) => {
               <div className='mt-5 flex-1 h-0 overflow-y-auto'>
                 <nav className='px-2 space-y-1'>
                   {navigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className={classNames(
-                        item.current
-                          ? "bg-gray-100 text-gray-900"
-                          : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
-                        "group flex items-center px-2 py-2 text-base font-medium rounded-md"
-                      )}
-                    >
-                      <item.icon
+                    <Link key={item.name} href={item.href}>
+                      <a
                         className={classNames(
                           item.current
-                            ? "text-gray-500"
-                            : "text-gray-400 group-hover:text-gray-500",
-                          "mr-4 flex-shrink-0 h-6 w-6"
+                            ? "bg-gray-100 text-gray-900"
+                            : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
+                          "group flex items-center px-2 py-2 text-base font-medium rounded-md"
                         )}
-                        aria-hidden='true'
-                      />
-                      {item.name}
-                    </a>
+                      >
+                        <item.icon
+                          className={classNames(
+                            item.current
+                              ? "text-gray-500"
+                              : "text-gray-400 group-hover:text-gray-500",
+                            "mr-4 flex-shrink-0 h-6 w-6"
+                          )}
+                          aria-hidden='true'
+                        />
+                        {item.name}
+                      </a>
+                    </Link>
                   ))}
                 </nav>
               </div>
@@ -255,13 +266,13 @@ const Layout = ({ children }) => {
                 <span className='sr-only'>View notifications</span>
                 <BellIcon className='h-6 w-6' aria-hidden='true' />
               </button>
-              <button
+              {/* <button
                 type='button'
                 className='bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
               >
                 <span className='sr-only'>Settings</span>
                 <Cog8ToothIcon className='h-6 w-6' aria-hidden='true' />
-              </button>
+              </button> */}
 
               {/* Profile dropdown */}
               <Menu as='div' className='ml-3 relative'>
@@ -293,9 +304,17 @@ const Layout = ({ children }) => {
                             onClick={item.callback}
                             className={classNames(
                               active ? "bg-gray-100" : "",
-                              "w-full text-left cursor-pointer block px-4 py-2 text-sm text-gray-700"
+                              "flex items-center w-full text-left cursor-pointer px-4 py-2 text-sm text-gray-700"
                             )}
                           >
+                            <item.icon
+                              className={classNames(
+                                router.pathname === item.href
+                                  ? "text-blue-500"
+                                  : "text-gray-500 group-hover:text-gray-600",
+                                "mr-2 flex-shrink-0 h-4 w-4"
+                              )}
+                            />
                             {item.name}
                           </button>
                         )}

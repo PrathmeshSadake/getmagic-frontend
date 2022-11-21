@@ -66,7 +66,7 @@ function MyApp({ Component, pageProps }) {
       ) : (
         <React.Fragment>
           <Component {...pageProps} />
-          {router.pathname == "/" && <div class='ball hidden lg:block' />}
+          {router.pathname == "/" && <div className='ball hidden lg:block' />}
         </React.Fragment>
       )}
     </React.Fragment>

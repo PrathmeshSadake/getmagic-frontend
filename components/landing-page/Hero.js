@@ -69,7 +69,7 @@ export default function Example() {
                 className='-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-100'
                 onClick={() => setMobileMenuOpen(true)}
               >
-                <span className='sr-only'>Open main menu</span>
+                {/* <span className='sr-only'>Open main menu</span> */}
                 <Bars3Icon className='h-6 w-6' aria-hidden='true' />
               </button>
             </div>
@@ -100,7 +100,7 @@ export default function Example() {
               <div className='flex h-9 items-center justify-between'>
                 <div className='flex'>
                   <Link href='/' className='-m-1.5 p-1.5'>
-                    <span className='sr-only'>Kollaborate</span>
+                    {/* <span className='sr-only'>Kollaborate</span> */}
                     <Image
                       height={32}
                       width={32}
@@ -115,7 +115,7 @@ export default function Example() {
                     className='-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-100'
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    <span className='sr-only'>Close menu</span>
+                    {/* <span className='sr-only'>Close menu</span> */}
                     <XMarkIcon className='h-6 w-6' aria-hidden='true' />
                   </button>
                 </div>
