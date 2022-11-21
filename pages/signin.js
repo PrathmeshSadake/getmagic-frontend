@@ -50,7 +50,7 @@ export default function SignInPage() {
                 Or{" "}
                 <Link href='/signup'>
                   <a className='font-medium text-indigo-600 hover:text-indigo-500'>
-                    Create a new account
+                    Get Started! Create a new account today, free forever!
                   </a>
                 </Link>
               </p>
