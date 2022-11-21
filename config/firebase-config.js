@@ -2,6 +2,8 @@ import { getApps, initializeApp } from "firebase/app";
 import {
   browserLocalPersistence,
   getAuth,
+  browserSessionPersistence,
+  browserPopupRedirectResolver,
   setPersistence,
 } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
@@ -22,8 +24,8 @@ let firebaseApp;
 //https://github.com/firebase/firebase-js-sdk/issues/4950 change made on nov 21
 if (!getApps().length) {
   firebaseApp = initializeApp(firebaseConfig,{
-    persistence: browserSessionPersistence,
-    popupRedirectResolver: browserPopupRedirectResolver,
+    browserSessionPersistence,
+    browserPopupRedirectResolver,
  });
 }
 
