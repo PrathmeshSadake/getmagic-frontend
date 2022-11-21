@@ -19,7 +19,7 @@ const firebaseConfig = {
 // Initialize Firebase
 // const app = initializeApp(firebaseConfig);
 let firebaseApp;
-
+//https://github.com/firebase/firebase-js-sdk/issues/4950 change made on nov 21
 if (!getApps().length) {
   firebaseApp = initializeApp(firebaseConfig,{
     persistence: browserSessionPersistence,
