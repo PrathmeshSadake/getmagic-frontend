@@ -21,7 +21,10 @@ const firebaseConfig = {
 let firebaseApp;
 
 if (!getApps().length) {
-  firebaseApp = initializeApp(firebaseConfig);
+  firebaseApp = initializeApp(firebaseConfig,{
+    persistence: browserSessionPersistence,
+    popupRedirectResolver: browserPopupRedirectResolver,
+ });
 }
 
 export const app = firebaseApp;
