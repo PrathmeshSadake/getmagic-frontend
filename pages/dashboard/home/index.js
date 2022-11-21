@@ -35,6 +35,7 @@ const Home = () => {
               <Image
                 src='https://source.unsplash.com/4u7VzDgNgLI'
                 alt={product.imageAlt}
+                onDragStart={(event)=> event.preventDefault()}/*Disabled on onDragStart={(event)=> event.preventDefault() to prevent dragging of images */
                 layout='fill'
               />
             </div>
