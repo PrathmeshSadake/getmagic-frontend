@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import LandingFooter from "../landing-page/Footer";
+import VariantCTA from "../VariantCTA";
 
 const navigation = [
   { name: "Product", href: "#" },
@@ -124,12 +125,13 @@ const Influencer = () => {
           <div className='mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl lg:grid lg:grid-cols-2 lg:gap-24'>
             <div className='mt-20'>
               <div className='mt-6 sm:max-w-xl'>
-                <h1 className='text-3xl font-medium text-gray-100 tracking-tight sm:text-4xl'>
-                  Your Creativity Matters, Follower Counts Don&apos;t Matter
+                <h1 className='text-3xl font-medium text-red-500 tracking-tight sm:text-5xl'>
+                  No Hassle Brand Deals
                 </h1>
                 <p className='mt-6 text-2xl text-gray-200'>
-                  Search and discover active brands to pitch to Be discoverable
-                  when brands are looking for UGC!
+                  Run your business like the Pros and Drive efficiency with our
+                  Creator Services platform also Maximize ROI with Creative New
+                  Formats
                 </p>
               </div>
               <form action='#' className='mt-12 sm:max-w-lg sm:w-full sm:flex'>
@@ -239,7 +241,6 @@ const Influencer = () => {
           </div>
         </div>
 
-        {/* Testimonial/stats section */}
         <div className='relative mt-20'>
           <div className='lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start'>
             <div className='relative sm:py-16 lg:py-0'>
@@ -325,48 +326,50 @@ const Influencer = () => {
             <div className='relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0'>
               {/* Content area */}
               <div className='pt-12 sm:pt-16 lg:pt-20'>
-                <div className='mt-6 text-gray-200 space-y-6'>
+                <h1>
+                  <span className='mt-1 block text-xl tracking-tight font-medium sm:text-2xl xl:text-3xl'>
+                    <span className='text-gray-100'>
+                      Run your business like the{" "}
+                    </span>
+                    <span className='text-red-400'>Pros</span>
+                  </span>
+                </h1>
+                <div className='mt-6 text-gray-200 space-y-4'>
                   <p className='text-xl leading-7'>
-                    Setup recurring subscription - take the headache out of the
-                    Retainer Model!
+                    Connect with top brands and be discoverable in their
+                    searches on our platform
                   </p>
                   <p className='text-xl leading-7'>
-                    0 fee payments! Yes, thats rights. Keep 100% of your
-                    contract value!
+                    Cut out the middleman, keep 95% of contract value
                   </p>
                   <p className='text-xl leading-7'>
                     Zero hassle, no negotiations - focus on maximizing your
                     income.
                   </p>
-                  <p className='text-xl leading-7'>
-                    Built in zero negotiation Contracts for peace of mind!
-                  </p>
+                  <p className='text-xl leading-7'>No hidden fees - ever</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div className='mt-16 mx-auto max-w-7xl px-4 sm:mt-24 sm:px-6 lg:mt-32'>
-          <div className='lg:grid lg:grid-cols-12 lg:gap-8'>
+          <div className='lg:grid lg:grid-cols-12 lg:gap-16'>
             <div className='sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left text-gray-200'>
               <h1>
                 <span className='mt-1 block text-xl tracking-tight font-medium sm:text-2xl xl:text-3xl'>
-                  <span className='block text-gray-100'>
-                    Get Paid with clear built-in contracts in place
-                  </span>
-                  <span className='block text-red-400'>
-                    Never get cheated again!
+                  <span className='text-red-400'>Maximize ROI </span>
+                  <span className='text-gray-100'>
+                    with Creative New Formats
                   </span>
                 </span>
               </h1>
-              <div className='mt-6 text-gray-200 space-y-6'>
+              <div className='mt-6 text-gray-200 space-y-4'>
                 <p className='text-xl leading-7'>
-                  Step out and Grow! Reach decision makers in new verticals like
-                  apps and services to diversify your income stream!
+                  Get paid in innvoative ways, no more ‘sponsorships only’
                 </p>
                 <p className='text-xl leading-7'>
-                  Stay on top of your game! Get the latest hooks, trending audio
-                  and more.
+                  Get deals done quickly, differentiate yourself from the
+                  competition
                 </p>
                 <p className='text-xl leading-7'>
                   Maximize your creativity - Let us handle monitoring for
@@ -431,108 +434,88 @@ const Influencer = () => {
             </div>
           </div>
         </div>
-
-        {/* CTA section */}
-        <div className='relative mt-24 sm:mt-32 sm:py-16'>
-          <div aria-hidden='true' className='hidden sm:block'>
-            <div className='absolute inset-y-0 left-0 w-1/2 bg-gray-900 rounded-r' />
-            <svg
-              className='absolute top-8 left-1/2 -ml-3'
-              width={404}
-              height={392}
-              fill='none'
-              viewBox='0 0 404 392'
-            >
-              <defs>
-                <pattern
-                  id='8228f071-bcee-4ec8-905a-2a059a2cc4fb'
-                  x={0}
-                  y={0}
-                  width={20}
-                  height={20}
-                  patternUnits='userSpaceOnUse'
-                >
-                  <rect
-                    x={0}
-                    y={0}
-                    width={4}
-                    height={4}
-                    className='text-gray-200'
-                    fill='currentColor'
-                  />
-                </pattern>
-              </defs>
-              <rect
-                width={404}
-                height={392}
-                fill='url(#8228f071-bcee-4ec8-905a-2a059a2cc4fb)'
-              />
-            </svg>
-          </div>
-          <div className='mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8'>
-            <div className='relative rounded px-6 py-10 bg-rose-500 overflow-hidden shadow-xl sm:px-12 sm:py-20'>
-              <div
+        <div className='mt-16 mx-auto max-w-7xl px-4 sm:mt-24 sm:px-6 lg:mt-32'>
+          <div className='lg:grid lg:grid-cols-12 lg:gap-16'>
+            <div className='mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center'>
+              <svg
+                className='absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-8 scale-75 origin-top sm:scale-100 lg:hidden'
+                width={640}
+                height={784}
+                fill='none'
+                viewBox='0 0 640 784'
                 aria-hidden='true'
-                className='absolute inset-0 -mt-72 sm:-mt-32 md:mt-0'
               >
-                <svg
-                  className='absolute inset-0 h-full w-full'
-                  preserveAspectRatio='xMidYMid slice'
-                  xmlns='http://www.w3.org/2000/svg'
-                  fill='none'
-                  viewBox='0 0 1463 360'
-                >
-                  <path
-                    className='text-rose-400 text-opacity-40'
-                    fill='currentColor'
-                    d='M-82.673 72l1761.849 472.086-134.327 501.315-1761.85-472.086z'
-                  />
-                  <path
-                    className='text-rose-600 text-opacity-40'
-                    fill='currentColor'
-                    d='M-217.088 544.086L1544.761 72l134.327 501.316-1761.849 472.086z'
-                  />
-                </svg>
-              </div>
-              <div className='relative'>
-                <div className='sm:text-center'>
-                  <h2 className='text-3xl font-extrabold text-white tracking-tight sm:text-4xl'>
-                    Get notified when we&rsquo;re launching.
-                  </h2>
-                  <p className='mt-6 mx-auto max-w-2xl text-lg text-rose-100'>
-                    Your Creativity Matters, Follower Counts Don&apos;t Matter
-                    Search and discover active brands to pitch to Be
-                    discoverable when brands are looking for UGC!
-                  </p>
-                </div>
-                <form
-                  action='#'
-                  className='mt-12 sm:mx-auto sm:max-w-lg sm:flex'
-                >
-                  <div className='min-w-0 flex-1'>
-                    <label htmlFor='cta-email' className='sr-only'>
-                      Email address
-                    </label>
-                    <input
-                      id='cta-email'
-                      type='email'
-                      className='block w-full border border-transparent rounded-md px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500'
-                      placeholder='Enter your email'
+                <defs>
+                  <pattern
+                    id='4f4f415c-a0e9-44c2-9601-6ded5a34a13e'
+                    x={118}
+                    y={0}
+                    width={20}
+                    height={20}
+                    patternUnits='userSpaceOnUse'
+                  >
+                    <rect
+                      x={0}
+                      y={0}
+                      width={4}
+                      height={4}
+                      className='text-gray-200'
+                      fill='currentColor'
                     />
-                  </div>
-                  <div className='mt-4 sm:mt-0 sm:ml-3'>
-                    <button
-                      type='submit'
-                      className='block w-full rounded-md border border-transparent px-5 py-3 bg-gray-900 text-base font-medium text-white shadow hover:bg-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500 sm:px-10'
-                    >
-                      Notify me
-                    </button>
-                  </div>
-                </form>
+                  </pattern>
+                </defs>
+                <rect
+                  y={72}
+                  width={640}
+                  height={640}
+                  className='text-gray-50'
+                  fill='currentColor'
+                />
+                <rect
+                  x={118}
+                  width={404}
+                  height={784}
+                  fill='url(#4f4f415c-a0e9-44c2-9601-6ded5a34a13e)'
+                />
+              </svg>
+              <div className='absolute inset-0 h-full w-full object-cover'>
+                <Image
+                  layout='fill'
+                  src='https://source.unsplash.com/gUIJ0YszPig'
+                  alt=''
+                />
+              </div>
+            </div>
+            <div className='sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left text-gray-200'>
+              <h1>
+                <span className='mt-1 block text-xl tracking-tight font-medium sm:text-2xl xl:text-3xl'>
+                  <span className='text-gray-100'>
+                    Drive efficiency with our{" "}
+                  </span>
+                  <span className='text-red-400'>
+                    Creator Services platform
+                  </span>
+                </span>
+              </h1>
+              <div className='mt-6 text-gray-200 space-y-4'>
+                <p className='text-xl leading-7'>
+                  Get professionals to manage editing your content so you can
+                  focus on content creation
+                </p>
+                <p className='text-xl leading-7'>
+                  Save time - get started with the best virtual assistants
+                </p>
+                <p className='text-xl leading-7'>
+                  Connect with top brands and be discoverable in their searches
+                  on our platform and cut out the middleman, keep 95% of
+                  contract value
+                </p>
               </div>
             </div>
           </div>
         </div>
+        {/* CTA section */}
+        <VariantCTA />
       </main>
 
       {/* Footer section */}
