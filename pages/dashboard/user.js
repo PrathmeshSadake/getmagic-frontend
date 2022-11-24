@@ -2,6 +2,10 @@ import React from "react";
 import { MultiStepForm, Step } from "react-multi-form";
 import StepOne from "../../components/multistep-form/StepOne";
 import StepTwo from "../../components/multistep-form/StepTwo";
+import StepThree from "../../components/multistep-form/StepThree";
+import StepFour from "../../components/multistep-form/StepFour";
+import StepFive from "../../components/multistep-form/StepFive";
+import StepSix from "../../components/multistep-form/StepSix";
 
 const User = () => {
   const [active, setActive] = React.useState(1);
@@ -13,8 +17,20 @@ const User = () => {
           <Step label='user info'>
             <StepOne />
           </Step>
-          <Step label='specialization'>
+          <Step label='type of creator'>
             <StepTwo />
+          </Step>
+          <Step label='social platforms'>
+            <StepThree />
+          </Step>
+          <Step label='specialization'>
+            <StepFour />
+          </Step>
+          <Step label='offerings'>
+            <StepFive />
+          </Step>
+          <Step label='invitation code'>
+            <StepSix />
           </Step>
         </MultiStepForm>
       </div>
@@ -28,7 +44,7 @@ const User = () => {
             Previous
           </button>
         )}
-        {active !== 2 && (
+        {active <= 6 && (
           <button
             onClick={() => setActive(active + 1)}
             style={{ float: "right" }}
@@ -37,7 +53,7 @@ const User = () => {
             Next
           </button>
         )}
-        {active == 2 && (
+        {active > 6 && (
           <button
             onClick={() => setActive(active + 1)}
             style={{ float: "right" }}
