@@ -18,7 +18,7 @@ export default function SignInPage() {
       event.preventDefault();
       try {
         await signInWithEmailAndPassword(auth, email, password);
-        router.push("/dashboard");
+        router.push("/dashboard/home");
       } catch (error) {
         console.log("error");
         alert(error);
@@ -27,13 +27,14 @@ export default function SignInPage() {
     [router]
   );
   const currentUser = useContext(AuthContext);
-  // console.log(context);
+  console.log(currentUser);
 
   console.log(useContext(AuthContext));
-
   if (currentUser) {
-    router.push("/dashboard");
-    return <></>;
+    if (typeof window !== "undefined") {
+      router.push("/dashboard/home");
+      return <></>;
+    }
   } else {
     return (
       <div className='min-h-full flex'>
@@ -49,7 +50,7 @@ export default function SignInPage() {
                 Or{" "}
                 <Link href='/signup'>
                   <a className='font-medium text-indigo-600 hover:text-indigo-500'>
-                    Create a new account
+                    Get Started! Create a new account today, free forever!
                   </a>
                 </Link>
               </p>

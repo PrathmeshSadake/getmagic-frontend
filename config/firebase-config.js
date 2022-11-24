@@ -2,6 +2,8 @@ import { getApps, initializeApp } from "firebase/app";
 import {
   browserLocalPersistence,
   getAuth,
+  browserSessionPersistence,
+  browserPopupRedirectResolver,
   setPersistence,
 } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
@@ -19,9 +21,12 @@ const firebaseConfig = {
 // Initialize Firebase
 // const app = initializeApp(firebaseConfig);
 let firebaseApp;
-
+//https://github.com/firebase/firebase-js-sdk/issues/4950 change made on nov 21
 if (!getApps().length) {
-  firebaseApp = initializeApp(firebaseConfig);
+  firebaseApp = initializeApp(firebaseConfig,{
+    browserSessionPersistence,
+    browserPopupRedirectResolver,
+ });
 }
 
 export const app = firebaseApp;
