@@ -7,6 +7,7 @@ import "../assets/fonts/GT Walsheim/stylesheet.css";
 import gsap from "gsap";
 import "../styles/globals.css";
 import Layout from "../layout/Layout";
+import Head from "next/head";
 
 const openRoutes = [
   "/",
@@ -15,7 +16,7 @@ const openRoutes = [
   "/index",
   "/signin",
   "/logout",
-  "/landingpage",
+  "/variant",
   "/faq",
 ];
 function MyApp({ Component, pageProps }) {
@@ -57,6 +58,9 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <React.Fragment>
+      <Head>
+        <title>Kollaborate</title>
+      </Head>
       {!openRoutes.includes(router.pathname) ? (
         <AuthProvider>
           <Layout>
