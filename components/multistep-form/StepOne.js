@@ -85,6 +85,55 @@ const StepOne = () => {
                   ))}
                 </select>
               </div>
+
+              <div className='col-span-6 sm:col-span-3'>
+                <label
+                  htmlFor='income'
+                  className='block text-sm font-medium text-gray-700'
+                >
+                  How do you describe yourself?
+                </label>
+                <select
+                  id='income'
+                  name='income'
+                  autoComplete='income'
+                  className='mt-2 p-3 block w-full rounded-md border-gray-300 border-2 bg-white shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm'
+                >
+                  {[
+                    "Select One",
+                    "Creator Social Handles, YouTube Channels, Podcasts",
+                    "Video, Thumbnails, Audio",
+                    "Creator Services",
+                    "Other",
+                  ].map((income) => (
+                    <option key={income}>{income}</option>
+                  ))}
+                </select>
+              </div>
+              <div className='col-span-6 sm:col-span-3'>
+                <label
+                  htmlFor='income'
+                  className='block text-sm font-medium text-gray-700'
+                >
+                  How do you describe yourself?
+                </label>
+                <select
+                  id='income'
+                  name='income'
+                  autoComplete='income'
+                  className='mt-2 p-3 block w-full rounded-md border-gray-300 border-2 bg-white shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm'
+                >
+                  {[
+                    "Select One",
+                    "Creator Social Handles, YouTube Channels, Podcasts",
+                    "Video, Thumbnails, Audio",
+                    "Creator Services",
+                    "Other",
+                  ].map((income) => (
+                    <option key={income}>{income}</option>
+                  ))}
+                </select>
+              </div>
               <div className='col-span-6 sm:col-span-3'>
                 <div className='flex items-start'>
                   <div className='flex h-6 items-center'>
@@ -110,8 +159,7 @@ const StepOne = () => {
                   </div>
                 </div>
               </div>
-              <div className='col-span-6 sm:col-span-3'></div>
-              <div className='col-span-6 sm:col-span-3'>
+              {/* <div className='col-span-6 sm:col-span-3'>
                 <label
                   htmlFor='phone-number'
                   className='block text-sm font-medium text-gray-700'
@@ -125,7 +173,7 @@ const StepOne = () => {
                   autoComplete='email'
                   className='mt-2 p-3 block w-full rounded-md border-gray-300 border-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
                 />
-              </div>
+              </div> */}
             </div>
           </div>
           {/* <div className='bg-gray-50 px-4 py-3 text-right sm:px-6'>

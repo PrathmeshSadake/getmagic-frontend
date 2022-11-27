@@ -7,18 +7,44 @@ import {
   FacebookAuthProvider,
   signOut,
   signInWithPopup,
+  updateProfile,
 } from "firebase/auth";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { useRouter } from "next/router";
-import { auth } from "../config/firebase-config";
+import { auth, db } from "../config/firebase-config";
 const googleProvider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
 
 // Create a password-based account
-export const CreateNewUser = (email, password) =>
+export const CreateNewUser = (email, password, firstName, lastName, router) =>
   createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
+    .then(async (userCredential) => {
       const user = userCredential.user;
       console.log("Signed in", user);
+      updateProfile(auth.currentUser, {
+        displayName: `${firstName} ${lastName}`,
+      })
+        .then(async () => {
+          const data = {
+            email,
+            uid: auth.currentUser.uid,
+            displayName: auth.currentUser.displayName,
+          };
+          await setDoc(doc(db, "users", auth.currentUser.uid), data);
+          const userRef = doc(db, "userData", auth.currentUser.uid);
+          const userSnap = await getDoc(userRef);
+          if (userSnap.exists()) {
+            console.log("Document data:", userSnap.data());
+            router.push("/dashboard/home");
+          } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+            router.push("/onboarding");
+          }
+        })
+        .catch((error) => {
+          console.log("An error occurred");
+        });
     })
     .catch((error) => {
       const errorCode = error.code;
