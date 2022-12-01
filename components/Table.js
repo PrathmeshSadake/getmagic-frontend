@@ -7,9 +7,29 @@ const items = [
     price: "50",
     description: "Single video, simple phone video without edits",
   },
+  {
+    item: "Instagram Reels",
+    price: "35",
+    description: "Instagram ready reels",
+  },
+  {
+    item: "Editorial Services",
+    price: "20",
+    description: "Video editing package",
+  },
+  {
+    item: "Package deal",
+    price: "20% Off",
+    description: "Combine the above and name your price!",
+  },
+  {
+    item: "Offer Subscriptions",
+    price: "20% Off",
+    description: "Combine the above and name your price!",
+  },
 ];
 
-export default function Example() {
+export default function DataTable() {
   return (
     <div className='px-4'>
       <div className='sm:flex sm:items-center'>
@@ -71,7 +91,7 @@ export default function Example() {
                         {item.item}
                       </td>
                       <td className='whitespace-nowrap px-3 py-4 text-sm text-gray-500'>
-                        {item.price}
+                        ${item.price}
                       </td>
                       <td className='whitespace-nowrap px-3 py-4 text-sm text-gray-500'>
                         {item.description}
