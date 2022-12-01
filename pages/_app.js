@@ -17,7 +17,7 @@ const openRoutes = [
   "/signin",
   "/logout",
   "/variant",
-  "/faq",
+  "/onboarding",
 ];
 function MyApp({ Component, pageProps }) {
   const router = useRouter();

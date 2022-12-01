@@ -1,7 +1,12 @@
 import React from "react";
+import DataTable from "../../components/Table";
 
 const Pricing = () => {
-  return <div>Pricing</div>;
+  return (
+    <div>
+      <DataTable />
+    </div>
+  );
 };
 
 export default Pricing;

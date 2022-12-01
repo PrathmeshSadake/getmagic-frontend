@@ -6,7 +6,7 @@ import General from "../components/variants/General";
 import Students from "../components/variants/Students";
 import Influencer from "../components/variants/Influencer";
 
-const Variant = () => {
+const BrandVariants = () => {
   const router = useRouter();
   const { type } = router.query;
 
@@ -16,4 +16,4 @@ const Variant = () => {
   else return <General />;
 };
 
-export default Variant;
+export default BrandVariants;
