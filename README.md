@@ -2,7 +2,32 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+
+### Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+You can get values of these variables from firebase project (WEB)
+`Make sure not to mess with any kind of production database and users data without knowledge of Firebase and NextJS`
+
+
+`NEXT_PUBLIC_API_KEY=<YOUR_KEY>`
+
+`NEXT_PUBLIC_AUTH_DOMAIN=<YOUR_KEY>`
+
+`NEXT_PUBLIC_PROJECT_ID=<YOUR_KEY>`
+
+`NEXT_PUBLIC_STORAGE_BUCKET=<YOUR_KEY>`
+
+`NEXT_PUBLIC_MESSAGING_SENDER_ID=<YOUR_KEY>`
+
+`NEXT_PUBLIC_APP_ID=<YOUR_KEY>`
+
+`NEXT_PUBLIC_MEASUREMENT_ID=<YOUR_KEY>`
+
+
+
+
+### First, run the development server:
 
 ```bash
 npm run dev
