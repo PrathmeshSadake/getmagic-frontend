@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useContext, useState } from "react";
-import { MultiStepForm, Step } from "react-multi-form";
 import Logo from "../assets/logo.png";
 import SignupBanner from "../assets/signupBanner.png";
 import StepOne from "../components/multistep-form/StepOne";
@@ -12,6 +11,7 @@ import SocialSignIn from "../components/SocialSignIn";
 import { AuthContext } from "../context/AuthContext";
 import { CreateNewUser } from "../utils/auth";
 import LoginBanner from "../assets/loginBanner.png";
+import MultiStep from "react-multistep";
 
 export default function SignUpPage() {
   const [email, setEmail] = useState("");
@@ -30,31 +30,50 @@ export default function SignUpPage() {
   //   }
   //   return <></>;
   // } else {
+
+  const steps = [{ component: <StepOne /> }, { component: <StepTwo /> }];
   return (
     <div className='min-h-full grid grid-cols-1 lg:grid-cols-3'>
       <div className='flex-1 flex flex-col justify-center py-12 px-4 sm:px-12 col-span-2'>
         <div className='w-full md:px-12'>
-          <MultiStepForm
-            activeStep={active}
-            showNavigation={false}
-            showTitles={false}
-          >
-            <Step label='user info'>
-              <StepOne />
-            </Step>
-            <Step label='type of creator'>
-              <StepTwo />
-            </Step>
-          </MultiStepForm>
+          <MultiStep
+            // showNavigation={false}
+            activeStep={0}
+            steps={steps}
+
+            nextStyle={{
+              display: "inline-flex",
+              marginTop: 10,
+              paddingLeft: "15px",
+              paddingRight: "15px",
+              paddingTop: "5px",
+              paddingBottom: "5px",
+              borderRadius: "0.375rem",
+              backgroundColor: "rgb(79 70 229 / var(--tw-bg-opacity))",
+              color: "#FFF",
+            }}
+            prevStyle={{
+              display: "inline-flex",
+              marginTop: 10,
+              paddingLeft: "15px",
+              paddingRight: "15px",
+              paddingTop: "5px",
+              paddingBottom: "5px",
+              borderRadius: "0.375rem",
+              backgroundColor: "rgb(79 70 229 / var(--tw-bg-opacity))",
+              color: "#FFF",
+            }}
+            // stepCustomStyle={{ display: "none" }}
+          />
         </div>
-        <div className='md:px-12 my-6 text-right'>
+        {/* <div className='md:px-12 my-6 text-right'>
           {active !== 1 && active <= 2 && (
             <button
               onClick={() => setActive(active - 1)}
               style={{ float: "left" }}
               className={`${
                 active == 0 ? "w-full block" : ""
-              } inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700`}
+
             >
               Previous
             </button>
@@ -86,7 +105,7 @@ export default function SignUpPage() {
               Save
             </button>
           )}
-        </div>
+        </div> */}
       </div>
       <div className='hidden lg:block relative w-full'>
         <Image
