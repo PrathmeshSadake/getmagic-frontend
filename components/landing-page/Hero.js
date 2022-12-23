@@ -85,10 +85,13 @@ export default function Example() {
               ))}
             </div>
             <div className='hidden lg:flex lg:min-w-0  lg:justify-end'>
-              <Link href='/signin'>
-                <a className='inline-block rounded-lg px-4 py-1.5 text-base font-medium leading-6 bg-gray-700 text-gray-200 shadow-sm'>
-                  Log in
-                </a>
+              <Link
+                className='inline-block rounded-lg px-4 py-1.5 text-base font-medium leading-6 bg-gray-700 text-gray-200 shadow-sm'
+                href='/signin'
+              >
+                {/* <a > */}
+                Log in
+                {/* </a> */}
               </Link>
             </div>
           </nav>
@@ -134,10 +137,13 @@ export default function Example() {
                     ))}
                   </div>
                   <div className='py-6'>
-                    <Link href='/signin'>
-                      <a className='inline-block rounded-lg px-4 py-1.5 text-base font-medium leading-6 bg-gray-700 text-gray-200 shadow-sm'>
-                        Log in
-                      </a>
+                    <Link
+                      className='inline-block rounded-lg px-4 py-1.5 text-base font-medium leading-6 bg-gray-700 text-gray-200 shadow-sm'
+                      href='/signin'
+                    >
+                      {/* <a > */}
+                      Log in
+                      {/* </a> */}
                     </Link>
                   </div>
                 </div>
