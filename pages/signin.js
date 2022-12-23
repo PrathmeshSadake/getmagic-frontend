@@ -48,10 +48,13 @@ export default function SignInPage() {
             </h2>
             <p className='mt-2 text-sm text-gray-600'>
               Or{" "}
-              <Link href='/signup'>
-                <a className='font-medium text-indigo-600 hover:text-indigo-500'>
-                  Get Started!
-                </a>
+              <Link
+                className='font-medium text-indigo-600 hover:text-indigo-500'
+                href='/signup'
+              >
+                {/* <a > */}
+                Get Started!
+                {/* </a> */}
               </Link>
             </p>
           </div>

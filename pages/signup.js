@@ -39,10 +39,10 @@ export default function SignUpPage() {
             </h2>
             <p className='mt-2 text-sm text-gray-600'>
               Already have an account?{" "}
-              <Link href='/signin'>
-                <a className='font-medium text-indigo-600 hover:text-indigo-500'>
+              <Link className='font-medium text-indigo-600 hover:text-indigo-500' href='/signin'>
+                {/* <a > */}
                   Login here
-                </a>
+                {/* </a> */}
               </Link>
             </p>
           </div>
