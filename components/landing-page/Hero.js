@@ -89,9 +89,7 @@ export default function Example() {
                 className='inline-block rounded-lg px-4 py-1.5 text-base font-medium leading-6 bg-gray-700 text-gray-200 shadow-sm'
                 href='/signin'
               >
-                {/* <a > */}
                 Log in
-                {/* </a> */}
               </Link>
             </div>
           </nav>
@@ -141,9 +139,9 @@ export default function Example() {
                       className='inline-block rounded-lg px-4 py-1.5 text-base font-medium leading-6 bg-gray-700 text-gray-200 shadow-sm'
                       href='/signin'
                     >
-                      {/* <a > */}
+
                       Log in
-                      {/* </a> */}
+
                     </Link>
                   </div>
                 </div>

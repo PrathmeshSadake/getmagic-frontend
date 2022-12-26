@@ -52,9 +52,9 @@ export default function SignInPage() {
                 className='font-medium text-indigo-600 hover:text-indigo-500'
                 href='/signup'
               >
-                {/* <a > */}
+
                 Get Started!
-                {/* </a> */}
+
               </Link>
             </p>
           </div>

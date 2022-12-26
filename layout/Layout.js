@@ -161,26 +161,26 @@ const Layout = ({ children }) => {
               <div className='mt-5 flex-1 h-0 overflow-y-auto'>
                 <nav className='px-2 space-y-1'>
                   {navigation.map((item) => (
-                    <Link key={item.name} href={item.href}>
-                      <a
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className={classNames(
+                        item.current
+                          ? "bg-gray-100 text-gray-900"
+                          : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
+                        "group flex items-center px-2 py-2 text-base font-medium rounded-md"
+                      )}
+                    >
+                      <item.icon
                         className={classNames(
                           item.current
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
-                          "group flex items-center px-2 py-2 text-base font-medium rounded-md"
+                            ? "text-gray-500"
+                            : "text-gray-400 group-hover:text-gray-500",
+                          "mr-4 flex-shrink-0 h-6 w-6"
                         )}
-                      >
-                        <item.icon
-                          className={classNames(
-                            item.current
-                              ? "text-gray-500"
-                              : "text-gray-400 group-hover:text-gray-500",
-                            "mr-4 flex-shrink-0 h-6 w-6"
-                          )}
-                          aria-hidden='true'
-                        />
-                        {item.name}
-                      </a>
+                        aria-hidden='true'
+                      />
+                      {item.name}
                     </Link>
                   ))}
                 </nav>
@@ -214,9 +214,6 @@ const Layout = ({ children }) => {
                   key={item.name}
                   href={item.href}
                 >
-                  {/* <a
-                    
-                  > */}
                   <item.icon
                     className={classNames(
                       router.pathname === item.href
@@ -227,7 +224,6 @@ const Layout = ({ children }) => {
                     aria-hidden='true'
                   />
                   {item.name}
-                  {/* </a> */}
                 </Link>
               ))}
             </nav>
