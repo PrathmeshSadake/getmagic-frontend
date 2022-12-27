@@ -66,7 +66,7 @@ export default function SignUpPage() {
         return <h1>User Forms not working. Enable Javascript!</h1>;
       case 1:
         return (
-          <FormUserDetails
+          <FormPersonalDetails
             nextStep={nextStep}
             handleChange={handleChange}
             values={formData}
@@ -74,7 +74,7 @@ export default function SignUpPage() {
         );
       case 2:
         return (
-          <FormPersonalDetails
+          <FormUserDetails
             nextStep={nextStep}
             prevStep={prevStep}
             handleChange={handleChange}
@@ -98,15 +98,15 @@ export default function SignUpPage() {
     }
   };
   return (
-    <div className='min-h-full grid grid-cols-1 lg:grid-cols-3'>
-      <div className='flex-1 flex flex-col justify-center py-12 px-4 sm:px-12 col-span-2'>
+    <div className='min-h-full grid grid-cols-1 lg:grid-cols-5'>
+      <div className='flex-1 flex flex-col justify-center py-12 px-4 sm:px-12 col-span-3'>
         <div className='w-full md:px-12'>{renderSwitch(formData.step)}</div>
       </div>
-      <div className='hidden lg:block relative w-full'>
+      <div className='hidden lg:block relative w-full col-span-2'>
         <Image
           className='absolute inset-0 h-full w-full object-cover'
           src={LoginBanner}
-          layout='fill'
+          fill
           alt='Banner'
         />
       </div>

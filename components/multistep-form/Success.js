@@ -12,7 +12,7 @@ export class Success extends Component {
         <br />
         <p variant='title'>Thank you for your submission!</p>
         <br />
-        <p>You will get an email with further instructions</p>
+        <p>We will reach out you over email with further onboarding.</p>
       </div>
     );
   }
