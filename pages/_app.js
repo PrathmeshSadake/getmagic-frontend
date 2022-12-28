@@ -18,6 +18,7 @@ const openRoutes = [
   "/logout",
   "/variant",
   "/onboarding",
+  "/privacy-policy",
 ];
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
