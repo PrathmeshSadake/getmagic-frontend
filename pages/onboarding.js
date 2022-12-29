@@ -19,10 +19,14 @@ export default function SignUpPage() {
     step: 1,
     firstName: "",
     lastName: "",
-    email: "",
-    occupation: "",
-    city: "",
-    bio: "",
+    phoneNumber: "",
+    annualRevenueLastYear: "",
+    openToWhiteListing: false,
+    creatorType: "",
+    otherCreatorType: "",
+    category: "",
+    otherCategoryType: "",
+    inviteCode: "",
   });
 
   // Go to next step
@@ -42,6 +46,12 @@ export default function SignUpPage() {
   // Handle fields change
   const handleChange = (input) => (e) => {
     setFormData({ ...formData, [input]: e.target.value });
+  };
+  const handleOpenToWhiteListingToggle = (value) => {
+    setFormData({
+      ...formData,
+      openToWhiteListing: value,
+    });
   };
 
   const router = useRouter();
@@ -69,6 +79,7 @@ export default function SignUpPage() {
           <FormPersonalDetails
             nextStep={nextStep}
             handleChange={handleChange}
+            handleOpenToWhiteListingToggle={handleOpenToWhiteListingToggle}
             values={formData}
           />
         );
@@ -86,6 +97,7 @@ export default function SignUpPage() {
           <InviteCode
             nextStep={nextStep}
             prevStep={prevStep}
+            handleChange={handleChange}
             values={formData}
           />
         );
