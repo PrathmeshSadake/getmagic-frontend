@@ -1,59 +1,22 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment, useState } from "react";
 
-const FormPersonalDetails = ({ nextStep }) => {
+const FormPersonalDetails = ({
+  nextStep,
+  values,
+  handleChange,
+  handleOpenToWhiteListingToggle,
+}) => {
+  const [isChecked, setIsChecked] = useState(values.openToWhiteListing);
   const continueToNextStep = (e) => {
     e.preventDefault();
     nextStep();
   };
+  const toggleChange = () => {
+    handleOpenToWhiteListingToggle(!isChecked);
+    setIsChecked(!isChecked);
+  };
 
-  // const { values, handleChange } = this.props;
   return (
-    //   <Fragment>
-    //     <input
-    //       label='Occupation'
-    //       hintText='Enter Occupation'
-    //       onChange={handleChange("occupation")}
-    //       defaultValue={values.occupation}
-    //     />
-    //     <br />
-    //     <input
-    //       label='City'
-    //       hintText='Enter City'
-    //       onChange={handleChange("city")}
-    //       defaultValue={values.city}
-    //     />
-    //     <br />
-    //     <input
-    //       label='Bio'
-    //       hintText='Enter Your Bio'
-    //       onChange={handleChange("bio")}
-    //       defaultValue={values.bio}
-    //     />
-    //     <br />
-    //     <br />
-    //     <button
-    //       style={{
-    //         background: "#EE3B55",
-    //         color: "#FFFFFF",
-    //         marginRight: "1em",
-    //       }}
-    //       label='Back'
-    //       onClick={this.back}
-    //     >
-    //       Back
-    //     </button>
-    //     <button
-    //       style={{
-    //         background: "#991A76",
-    //         color: "#FFFFFF",
-    //       }}
-    //       label='Continue'
-    //       onClick={this.continue}
-    //     >
-    //       {" "}
-    //       Continue
-    //     </button>
-    //   </Fragment>
     <div className='mt-5'>
       <form action='#' method='POST'>
         <div className='overflow-hidden shadow sm:rounded-md'>
@@ -66,48 +29,54 @@ const FormPersonalDetails = ({ nextStep }) => {
             <div className='grid grid-cols-6 gap-6'>
               <div className='col-span-6 sm:col-span-3'>
                 <label
-                  htmlFor='first-name'
+                  htmlFor='firstName'
                   className='block text-sm font-medium text-gray-700'
                 >
                   First name
                 </label>
                 <input
                   type='text'
-                  name='first-name'
-                  id='first-name'
+                  name='firstName'
+                  id='firstName'
                   autoComplete='given-name'
+                  onChange={handleChange("firstName")}
+                  value={values.firstName}
                   className='mt-2 p-3 block w-full rounded-md border-gray-300 border-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500  sm:text-sm'
                 />
               </div>
 
               <div className='col-span-6 sm:col-span-3'>
                 <label
-                  htmlFor='last-name'
+                  htmlFor='lastName'
                   className='block text-sm font-medium text-gray-700'
                 >
                   Last name
                 </label>
                 <input
                   type='text'
-                  name='last-name'
-                  id='last-name'
+                  name='lastName'
+                  id='lastName'
                   autoComplete='family-name'
+                  onChange={handleChange("lastName")}
+                  value={values.lastName}
                   className='mt-2 p-3 block w-full rounded-md border-gray-300 border-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
                 />
               </div>
 
               <div className='col-span-3'>
                 <label
-                  htmlFor='phone-number'
+                  htmlFor='phoneNumber'
                   className='block text-sm font-medium text-gray-700'
                 >
                   Phone Number
                 </label>
                 <input
                   type='text'
-                  name='email-address'
-                  id='email-address'
-                  autoComplete='email'
+                  name='phoneNumber'
+                  id='phoneNumber'
+                  autoComplete='phone-number'
+                  onChange={handleChange("phoneNumber")}
+                  value={values.phoneNumber}
                   className='mt-2 p-3 block w-full rounded-md border-gray-300 border-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
                 />
               </div>
@@ -122,6 +91,8 @@ const FormPersonalDetails = ({ nextStep }) => {
                   id='income'
                   name='income'
                   autoComplete='income'
+                  onChange={handleChange("annualRevenueLastYear")}
+                  value={values.annualRevenueLastYear}
                   className='mt-2 p-3 block w-full rounded-md border-gray-300 border-2 bg-white shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm'
                 >
                   {[
@@ -142,16 +113,18 @@ const FormPersonalDetails = ({ nextStep }) => {
                 <div className='flex items-start'>
                   <div className='flex h-6 items-center'>
                     <input
-                      id='comments'
-                      name='comments'
+                      id='openToWhiteListing'
+                      name='openToWhiteListing'
                       type='checkbox'
+                      checked={isChecked}
+                      onChange={toggleChange}
                       className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
                     />
                   </div>
 
                   <div className='ml-2 text-sm'>
                     <label
-                      htmlFor='comments'
+                      htmlFor='openToWhiteListing'
                       className='font-medium text-gray-700'
                     >
                       Open to white listing?
@@ -169,7 +142,14 @@ const FormPersonalDetails = ({ nextStep }) => {
             <button
               label='Continue'
               onClick={continueToNextStep}
-              className='inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+              disabled={
+                values.firstName == "" ||
+                values.lastName == "" ||
+                values.phoneNumber == "" ||
+                values.annualRevenueLastYear == "Select One" ||
+                values.annualRevenueLastYear == ""
+              }
+              className='disabled:bg-gray-400 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
             >
               Next
             </button>
