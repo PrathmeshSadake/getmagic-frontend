@@ -20,10 +20,12 @@
     "next-auth": "^4.16.4",
     "react": "^18.2.0",
     "react-avatar": "^5.0.3",
+    "react-confetti": "^6.1.0",
     "react-dom": "^18.2.0",
     "react-firebase-hooks": "^5.0.3",
     "react-modal": "^3.16.1",
-    "react-spring": "^9.5.5"
+    "react-spring": "^9.5.5",
+    "react-use": "^17.4.0"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
