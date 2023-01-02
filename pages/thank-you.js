@@ -1,9 +1,16 @@
-import React from "react";
-import { useWindowSize } from "react-use";
+import React, { useEffect, useState } from "react";
+import { useSetState, useWindowSize } from "react-use";
 import ReactConfetti from "react-confetti";
 
 const ThankYou = () => {
-  const { width, height } = useWindowSize();
+  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState(0);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setWidth(window.innerWidth);
+      setHeight(window.innerHeight);
+    }
+  }, [width, height]);
 
   return (
     <div className='z-10 flex items-center justify-center min-h-screen'>
