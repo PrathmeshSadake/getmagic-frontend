@@ -19,6 +19,7 @@ const openRoutes = [
   "/variant",
   "/onboarding",
   "/privacy-policy",
+  "/thank-you",
 ];
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
