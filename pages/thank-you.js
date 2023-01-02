@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useSetState, useWindowSize } from "react-use";
 import ReactConfetti from "react-confetti";
 
 const ThankYou = () => {
