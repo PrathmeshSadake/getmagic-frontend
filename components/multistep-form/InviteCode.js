@@ -18,7 +18,7 @@ const InviteCode = ({ nextStep, prevStep, values, handleChange }) => {
           <div className='bg-white px-4 py-5 sm:p-6'>
             <div className='px-4 sm:px-0'>
               <h3 className='text-lg font-medium leading-6 text-gray-900'>
-                Tell us about yourself
+                Please Enter Your Unique Code
               </h3>
             </div>
             <div className='grid grid-cols-1 gap-6'>

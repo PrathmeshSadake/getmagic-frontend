@@ -1,17 +1,11 @@
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useContext, useState } from "react";
-import Logo from "../assets/logo.png";
-import SignupBanner from "../assets/signupBanner.png";
-import SocialSignIn from "../components/SocialSignIn";
 import { AuthContext } from "../context/AuthContext";
-import { CreateNewUser } from "../utils/auth";
 import LoginBanner from "../assets/loginBanner.png";
 import FormUserDetails from "../components/multistep-form/FormUserDetails";
 import FormPersonalDetails from "../components/multistep-form/FormPersonalDetails";
 import Confirm from "../components/multistep-form/Confirm";
-import Success from "../components/multistep-form/Success";
 import InviteCode from "../components/multistep-form/InviteCode";
 
 export default function SignUpPage() {
@@ -105,8 +99,6 @@ export default function SignUpPage() {
         return (
           <Confirm nextStep={nextStep} prevStep={prevStep} values={formData} />
         );
-      case 5:
-        return <Success firstStep={firstStep} />;
     }
   };
   return (

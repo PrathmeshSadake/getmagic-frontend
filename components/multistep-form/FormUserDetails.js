@@ -49,8 +49,17 @@ const FormUserDetails = ({ nextStep, prevStep, values, handleChange }) => {
         return categories2;
       case "Creator Services":
         return categories3;
+      case "Select One":
+        return ["Please Select Category Type First"];
+      case "":
+        return ["Please Select Category Type First"];
       default:
-        return ["Please Select Creator Type First"];
+        return [
+          [...categories1, ...categories2, ...categories3].filter(
+            (category) => category !== "Other"
+          ),
+          "Other",
+        ];
     }
   };
 
@@ -165,7 +174,10 @@ const FormUserDetails = ({ nextStep, prevStep, values, handleChange }) => {
                 values.creatorType == "" ||
                 values.category == "" ||
                 values.creatorType == "Select One" ||
-                values.category == "Select One"
+                values.category == "Select One" ||
+                (values.creatorType == "Other" &&
+                  values.otherCreatorType == "") ||
+                (values.category == "Other" && values.otherCategoryType == "")
               }
               className='disabled:bg-gray-400 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
             >
