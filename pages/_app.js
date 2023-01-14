@@ -20,6 +20,8 @@ const openRoutes = [
   "/onboarding",
   "/privacy-policy",
   "/thank-you",
+  "/blogs",
+  "/blogs/[slug]",
 ];
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
